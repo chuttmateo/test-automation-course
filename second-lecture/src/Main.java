@@ -19,15 +19,15 @@ public class Main {
 
         //polymorphism
         List<Animal> animals = new ArrayList<>();
-        animals.add(new Duck(2500, "white"));
-        animals.add(new Fish(500, "brown"));
-        animals.add(new Duck(2000, "black"));
-        animals.add(new Duck(3000, "white"));
-        animals.add(new Fish(900, "brown"));
+        animals.add(new Duck(2500, "white", 1000));
+        animals.add(new Fish(500, "brown", true));
+        animals.add(new Duck(2000, "black", 8000));
+        animals.add(new Duck(3000, "white", 3000));
+        animals.add(new Fish(900, "brown", false));
 
         //Contructor overloading
         Duck d1 = new Duck("white");
-        Duck d2 = new Duck(3000, "white");
+        Duck d2 = new Duck(3000, "white", 2000);
 
         //call methods from Duck class
         animals.forEach(animal -> {
@@ -44,14 +44,16 @@ public class Main {
                 "smith",
                 "taxi@gmail.com",
                 new Address("New York", 9),
-                "Taxis inc");
+                "Taxis inc",
+                2344);
 
         Worker w2 = new Vet(
                 "Sofia",
                 "Chutt",
                 "sofia-vet@gmail.com",
                 new Address("Boston",27),
-                "The zoo");
+                "The zoo",
+                animals);
 
 
 

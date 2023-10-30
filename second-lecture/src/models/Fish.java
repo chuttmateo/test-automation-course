@@ -3,8 +3,12 @@ package models;
 import Interfaces.CanSwim;
 
 public class Fish extends Animal implements CanSwim {
-    public Fish(Integer weight, String color) {
+
+    private boolean fishScales;
+
+    public Fish(Integer weight, String color, boolean fishScales) {
         super(weight, color);
+        this.fishScales = fishScales;
     }
 
     @Override
@@ -15,5 +19,13 @@ public class Fish extends Animal implements CanSwim {
     @Override
     public void swim() {
         System.out.println("I'm a fish and I'm swimming");
+    }
+
+    public boolean isFishScales() {
+        return fishScales;
+    }
+
+    public void setFishScales(boolean fishScales) {
+        this.fishScales = fishScales;
     }
 }

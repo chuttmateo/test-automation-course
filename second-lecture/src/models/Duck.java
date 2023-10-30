@@ -5,10 +5,15 @@ import Interfaces.CanSwim;
 
 public class Duck extends Animal implements CanFly, CanSwim {
 
+    private int feathers;
+
     //Constructor OverLoading
-    public Duck(Integer weight, String color) {
+
+    public Duck(Integer weight, String color, int feathers) {
         super(weight, color);
+        this.feathers = feathers;
     }
+
     public Duck(String color){
         super(0, color);
     }
@@ -28,4 +33,12 @@ public class Duck extends Animal implements CanFly, CanSwim {
         System.out.println("I'm a duck my weight is " + getWeight() + " and I can swim");
     }
 
+
+    public int getFeathers() {
+        return feathers;
+    }
+
+    public void setFeathers(int feathers) {
+        this.feathers = feathers;
+    }
 }

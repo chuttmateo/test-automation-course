@@ -24,7 +24,6 @@ public class Zoo {
                 Collectors.groupingBy( a -> a.getClass().getSimpleName(), Collectors.counting() )
         );
 
-        //I don't know how to improve this printing
         System.out.println(mapAnimalsType);
     }
 
