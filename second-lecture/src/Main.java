@@ -39,14 +39,14 @@ public class Main {
 
 
         //polymorphism
-        TaxiDriver t1 = new TaxiDriver(
+        Worker w1 = new TaxiDriver(
                 "john",
                 "smith",
                 "taxi@gmail.com",
                 new Address("New York", 9),
                 "Taxis inc");
 
-        Vet v1 = new Vet(
+        Worker w2 = new Vet(
                 "Sofia",
                 "Chutt",
                 "sofia-vet@gmail.com",
@@ -58,11 +58,10 @@ public class Main {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Carl", "Johnson"));
         people.add(new Person("Mark", "MacAllister"));
-        people.add(v1);
+        people.add(w2);
 
         Zoo zoo = new Zoo(people, animals);
         zoo.printAnimals();
         zoo.countPeople();
-        System.out.println(zoo.getPeople());
     }
 }
