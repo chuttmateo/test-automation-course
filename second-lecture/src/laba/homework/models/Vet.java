@@ -1,12 +1,11 @@
 package laba.homework.models;
 
-import java.util.List;
 
 public class Vet extends Worker{
 
-    private List<Animal> favoriteAnimals;
+    private Animal[] favoriteAnimals;
 
-    public Vet(String firstName, String lastName, String email, Address address, String company, List<Animal> favoriteAnimals) {
+    public Vet(String firstName, String lastName, String email, Address address, String company, Animal[] favoriteAnimals) {
         super(firstName, lastName, email, address, company);
         this.favoriteAnimals = favoriteAnimals;
     }
@@ -16,11 +15,11 @@ public class Vet extends Worker{
         System.out.println("I'm a vet and I'm working");
     }
 
-    public List<Animal> getFavoriteAnimals() {
+    public Animal[] getFavoriteAnimals() {
         return favoriteAnimals;
     }
 
-    public void setFavoriteAnimals(List<Animal> favoriteAnimals) {
+    public void setFavoriteAnimals(Animal[] favoriteAnimals) {
         this.favoriteAnimals = favoriteAnimals;
     }
 }

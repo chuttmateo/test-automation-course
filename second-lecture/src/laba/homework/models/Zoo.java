@@ -1,46 +1,38 @@
 package laba.homework.models;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Zoo {
-    private List<Person> people;
-    private List<Animal> animals;
+    private Person[] people;
+    private Animal[] animals;
 
-    public Zoo(List<Person> people, List<Animal> animals) {
+    public Zoo(Person[] people, Animal[] animals) {
         this.people = people;
         this.animals = animals;
     }
 
     public void countPeople(){
-        System.out.println("In this Zoo there are " + people.size() + " people.");
+        System.out.println("In this Zoo there are " + people.length + " people.");
     }
 
     public void printAnimals(){
-        System.out.println("In this Zoo there are " + animals.size() + " animals.");
-
-        Map<String, Long> mapAnimalsType = animals.stream().collect(
-                Collectors.groupingBy( a -> a.getClass().getSimpleName(), Collectors.counting() )
-        );
-
-        mapAnimalsType.forEach((k,v) -> System.out.printf("%s: %d %n", k,v));
-        //System.out.println(mapAnimalsType);
+        for (Animal animal : animals) {
+            System.out.println(animal);
+        }
     }
 
-    public List<Person> getPeople() {
+    public Person[] getPeople() {
         return people;
     }
 
-    public void setPeople(List<Person> people) {
+    public void setPeople(Person[] people) {
         this.people = people;
     }
 
-    public List<Animal> getAnimals() {
+    public Animal[] getAnimals() {
         return animals;
     }
 
-    public void setAnimals(List<Animal> animals) {
+    public void setAnimals(Animal[] animals) {
         this.animals = animals;
     }
 }

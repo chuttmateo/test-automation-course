@@ -2,9 +2,6 @@ package laba.homework;
 
 import laba.homework.models.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         /*At least 10 classes
@@ -20,25 +17,25 @@ public class Main {
 
 
         //polymorphism
-        List<Animal> animals = new ArrayList<>();
-        animals.add(new Duck(2500, "white", 1000));
-        animals.add(new Fish(500, "brown", true));
-        animals.add(new Duck(2000, "black", 8000));
-        animals.add(new Duck(3000, "white", 3000));
-        animals.add(new Fish(900, "brown", false));
+        Animal[] animals = {
+                new Duck(2500, "white", 1000),
+                new Fish(500, "brown", true),
+                new Duck(2000, "black", 8000),
+                new Duck(3000, "white", 3000),
+                new Fish(900, "brown", false)
+        };
 
         //Contructor overloading
         Duck d1 = new Duck("white");
         Duck d2 = new Duck(3000, "white", 2000);
 
         //call methods from Duck class
-        animals.forEach(animal -> {
+        for ( Animal animal : animals ) {
             if (animal instanceof Duck){
                 ((Duck) animal).fly();
                 ((Duck) animal).swim();
             }
-        });
-
+        }
 
         //polymorphism
         Worker w1 = new TaxiDriver(
@@ -59,10 +56,13 @@ public class Main {
 
 
 
-        List<Person> people = new ArrayList<>();
-        people.add(new Person("Carl", "Johnson"));
-        people.add(new Person("Mark", "MacAllister"));
-        people.add(w2);
+        Person[] people = new Person[]{
+                new Person("Carl", "Johnson"),
+                new Person("Mark", "MacAllister"),
+                w2
+        };
+
+
 
         Zoo zoo = new Zoo(people, animals);
         zoo.printAnimals();
