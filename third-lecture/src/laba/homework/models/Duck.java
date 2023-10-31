@@ -1,7 +1,9 @@
-package models;
+package laba.homework.models;
 
-import Interfaces.CanFly;
-import Interfaces.CanSwim;
+import laba.homework.Interfaces.CanFly;
+import laba.homework.Interfaces.CanSwim;
+
+import java.util.Objects;
 
 public class Duck extends Animal implements CanFly, CanSwim {
 
@@ -33,6 +35,27 @@ public class Duck extends Animal implements CanFly, CanSwim {
         System.out.println("I'm a duck my weight is " + getWeight() + " and I can swim");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Duck duck = (Duck) o;
+        return feathers == duck.feathers;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(feathers);
+    }
+
+    @Override
+    public String toString() {
+        return "Duck{" +
+                "feathers=" + feathers +
+                ", weight=" + weight +
+                ", color='" + color + '\'' +
+                '}';
+    }
 
     public int getFeathers() {
         return feathers;

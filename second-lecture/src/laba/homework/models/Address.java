@@ -1,4 +1,4 @@
-package models;
+package laba.homework.models;
 
 public class Address {
     private String city;

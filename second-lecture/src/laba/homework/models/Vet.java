@@ -1,4 +1,4 @@
-package models;
+package laba.homework.models;
 
 import java.util.List;
 

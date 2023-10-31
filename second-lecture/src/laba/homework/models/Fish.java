@@ -1,6 +1,6 @@
-package models;
+package laba.homework.models;
 
-import Interfaces.CanSwim;
+import laba.homework.Interfaces.CanSwim;
 
 public class Fish extends Animal implements CanSwim {
 

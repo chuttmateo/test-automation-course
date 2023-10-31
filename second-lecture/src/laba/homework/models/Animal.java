@@ -1,4 +1,4 @@
-package models;
+package laba.homework.models;
 
 public abstract class Animal {
     private Integer weight;

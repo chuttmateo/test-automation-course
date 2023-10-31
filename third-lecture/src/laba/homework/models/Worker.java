@@ -1,10 +1,10 @@
-package models;
+package laba.homework.models;
 
 public abstract class Worker extends Person{
-    private String email;
-    private Address address;
+    protected String email;
+    protected Address address;
 
-    private String company;
+    protected String company;
 
     public Worker(String firstName, String lastName, String email, Address address, String company) {
         super(firstName, lastName);

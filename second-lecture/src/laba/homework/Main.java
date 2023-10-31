@@ -1,4 +1,6 @@
-import models.*;
+package laba.homework;
+
+import laba.homework.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
