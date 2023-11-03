@@ -1,10 +1,10 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.CanSwim;
+import laba.homework.Interfaces.ISwim;
 
 import java.util.Objects;
 
-public class Fish extends Animal implements CanSwim {
+public class Fish extends Animal implements ISwim {
 
     private boolean fishScales;
 

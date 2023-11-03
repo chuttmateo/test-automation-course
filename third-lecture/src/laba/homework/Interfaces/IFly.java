@@ -1,5 +1,5 @@
 package laba.homework.Interfaces;
 
-public interface CanFly {
+public interface IFly {
     void fly();
 }

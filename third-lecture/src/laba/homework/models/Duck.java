@@ -1,11 +1,11 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.CanFly;
-import laba.homework.Interfaces.CanSwim;
+import laba.homework.Interfaces.IFly;
+import laba.homework.Interfaces.ISwim;
 
 import java.util.Objects;
 
-public class Duck extends Animal implements CanFly, CanSwim {
+public class Duck extends Animal implements IFly, ISwim {
 
     private int feathers;
 

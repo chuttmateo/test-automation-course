@@ -1,11 +1,11 @@
-package laba.homework.models;
+package laba.homework;
 
 import laba.homework.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Homework {
+public class ThirdHomework {
     public static void main(String[] args) {
         /*Extend your previous homework with next features:
         Requirements:
@@ -17,6 +17,9 @@ public class Homework {
             hashcode(),
             equals()) for at least 3 classes from the hierarchy.*/
 
+
+        // Here is the UML
+        // https://drive.google.com/file/d/1ckBdXep63E6FVlErL3jLCg0uoyFfvMHT/view?usp=sharing
 
 
         Animal duck = new Duck(2000, "white", 10000);
@@ -33,14 +36,6 @@ public class Homework {
         duck.eat();
         fish.eat();
 
-        //protected modifier
-        System.out.println("----------------------------");
-        //I can do this because this "Homework" class is in the same package
-        System.out.println(duck.color);
-        System.out.println(duck.weight);
-        System.out.println(vet.company);
-        System.out.println(vet.email);
-        System.out.println(vet.address);
 
         //overridden toString method
         System.out.println("----------------------------");

@@ -1,5 +1,5 @@
 package laba.homework.Interfaces;
 
-public interface CanSwim {
+public interface ISwim {
     void swim();
 }
