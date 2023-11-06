@@ -12,8 +12,6 @@ public class Main {
           Create separate class with main() which will instantiate objects of implemented classes.*/
 
 
-        //Here is the UML
-        // https://drive.google.com/file/d/1ckBdXep63E6FVlErL3jLCg0uoyFfvMHT/view?usp=sharing
 
 
         //polymorphism

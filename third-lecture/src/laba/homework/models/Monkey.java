@@ -1,7 +1,7 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.IClimb;
-import laba.homework.Interfaces.IHide;
+import laba.homework.interfaces.IClimb;
+import laba.homework.interfaces.IHide;
 
 import java.util.Objects;
 

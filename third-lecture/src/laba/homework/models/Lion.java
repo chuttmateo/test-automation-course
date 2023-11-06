@@ -1,6 +1,6 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.IAttack;
+import laba.homework.interfaces.IAttack;
 
 import java.util.Objects;
 

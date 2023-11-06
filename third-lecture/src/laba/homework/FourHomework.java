@@ -1,6 +1,6 @@
 package laba.homework;
 
-import laba.homework.Interfaces.IFly;
+import laba.homework.interfaces.IFly;
 import laba.homework.models.Duck;
 import laba.homework.models.Eagle;
 import laba.homework.models.Ticket;

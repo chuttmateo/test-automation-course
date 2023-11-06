@@ -1,6 +1,6 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.ISwim;
+import laba.homework.interfaces.ISwim;
 
 import java.util.Objects;
 

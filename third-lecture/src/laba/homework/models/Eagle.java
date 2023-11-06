@@ -1,7 +1,7 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.IAttack;
-import laba.homework.Interfaces.IFly;
+import laba.homework.interfaces.IAttack;
+import laba.homework.interfaces.IFly;
 
 import java.util.Objects;
 

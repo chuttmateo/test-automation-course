@@ -1,7 +1,7 @@
 package laba.homework.models;
 
-import laba.homework.Interfaces.IFly;
-import laba.homework.Interfaces.ISwim;
+import laba.homework.interfaces.IFly;
+import laba.homework.interfaces.ISwim;
 
 import java.util.Objects;
 
