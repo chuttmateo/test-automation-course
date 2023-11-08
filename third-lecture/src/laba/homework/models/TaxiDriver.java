@@ -1,12 +1,14 @@
 package laba.homework.models;
 
+import laba.homework.exceptions.WrongNameException;
+
 import java.util.Objects;
 
 public class TaxiDriver extends Worker{
 
     private int licenceNumber;
 
-    public TaxiDriver(String firstName, String lastName, String email, Address address, String company, int licenceNumber) {
+    public TaxiDriver(String firstName, String lastName, String email, Address address, String company, int licenceNumber) throws WrongNameException {
         super(firstName, lastName, email, address, company);
         this.licenceNumber = licenceNumber;
     }

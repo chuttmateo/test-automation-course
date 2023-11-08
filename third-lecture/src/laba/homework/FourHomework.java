@@ -30,8 +30,10 @@ public class FourHomework {
         IFly duck = new Duck(2222, "white", 2000);
         IFly eagle = new Eagle(5000, "brown", "America");
 
+
         duck.fly();
         eagle.fly();
+
 
         System.out.println("3 ---------------------");
         //Create final class, method, variable.

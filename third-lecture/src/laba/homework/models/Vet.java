@@ -1,5 +1,7 @@
 package laba.homework.models;
 
+import laba.homework.exceptions.WrongNameException;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +9,7 @@ public class Vet extends Worker{
 
     private List<Animal> favoriteAnimals;
 
-    public Vet(String firstName, String lastName, String email, Address address, String company, List<Animal> favoriteAnimals) {
+    public Vet(String firstName, String lastName, String email, Address address, String company, List<Animal> favoriteAnimals) throws WrongNameException {
         super(firstName, lastName, email, address, company);
         this.favoriteAnimals = favoriteAnimals;
     }

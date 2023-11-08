@@ -1,5 +1,6 @@
 package laba.homework.models;
 
+import laba.homework.exceptions.CannotFlyException;
 import laba.homework.interfaces.IFly;
 import laba.homework.interfaces.ISwim;
 
@@ -16,17 +17,14 @@ public class Duck extends Animal implements IFly, ISwim {
         this.feathers = feathers;
     }
 
-    public Duck(String color){
-        super(0, color);
-    }
-
     @Override
     public void eat() {
         System.out.println("I'm a duck and I'm eating");
     }
 
     @Override
-    public void fly() {
+    public void fly() throws CannotFlyException {
+        if (feathers < 2000) throw new CannotFlyException("This duck cannot fly because it has few feathers, the minimum is 2000");
         System.out.println("I'm a duck and I can fly");
     }
 

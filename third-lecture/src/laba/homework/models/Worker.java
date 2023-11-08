@@ -1,12 +1,14 @@
 package laba.homework.models;
 
+import laba.homework.exceptions.WrongNameException;
+
 public abstract class Worker extends Person{
     protected String email;
     protected Address address;
 
     protected String company;
 
-    public Worker(String firstName, String lastName, String email, Address address, String company) {
+    public Worker(String firstName, String lastName, String email, Address address, String company) throws WrongNameException {
         super(firstName, lastName);
         this.email = email;
         this.address = address;

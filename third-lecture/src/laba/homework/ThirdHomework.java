@@ -1,5 +1,6 @@
 package laba.homework;
 
+import laba.homework.exceptions.WrongNameException;
 import laba.homework.models.*;
 
 import java.util.ArrayList;
@@ -29,7 +30,13 @@ public class ThirdHomework {
         animals.add(duck);
         animals.add(fish);
 
-        Worker vet = new Vet("Mateo", "Chutt", "mateo@mateo.com", new Address("MG", 6),"Vet sa", animals);
+        Worker vet=null;
+        try {
+            vet = new Vet("Mateo", "Chutt", "mateo@mateo.com", new Address("MG", 6),"Vet sa", animals);
+
+        }catch (WrongNameException ex){
+            ex.printStackTrace();
+        }
 
         //overridden method
         System.out.println("----------------------------");
