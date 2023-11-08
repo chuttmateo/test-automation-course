@@ -1,11 +1,14 @@
 package laba.homework.models;
 
 import laba.homework.exceptions.WrongNameException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class TaxiDriver extends Worker{
 
+    private static final Logger LOGGER = LogManager.getLogger(TaxiDriver.class);
     private int licenceNumber;
 
     public TaxiDriver(String firstName, String lastName, String email, Address address, String company, int licenceNumber) throws WrongNameException {
@@ -15,7 +18,7 @@ public class TaxiDriver extends Worker{
 
     @Override
     public void toWork() {
-        System.out.println("I'm a taxi driver and I'm working");
+        LOGGER.info("I'm a taxi driver and I'm working");
     }
 
     @Override

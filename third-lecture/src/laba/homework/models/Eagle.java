@@ -2,11 +2,14 @@ package laba.homework.models;
 
 import laba.homework.interfaces.IAttack;
 import laba.homework.interfaces.IFly;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Eagle extends Animal implements IAttack, IFly {
 
+    Logger LOGGER = LogManager.getLogger(Eagle.class);
     private String origin;
 
     public Eagle(Integer weight, String color, String origin) {
@@ -15,17 +18,17 @@ public class Eagle extends Animal implements IAttack, IFly {
     }
     @Override
     public void attack() {
-        System.out.println("I'm the Eagle and I'm attacking");
+        LOGGER.info("I'm the Eagle and I'm attacking");
     }
 
     @Override
     public void fly() {
-        System.out.println("I'm a eagle and I can fly");
+        LOGGER.info("I'm a eagle and I can fly");
     }
 
     @Override
     public void eat() {
-        System.out.println("Eagle eating");
+        LOGGER.info("Eagle eating");
     }
 
     @Override

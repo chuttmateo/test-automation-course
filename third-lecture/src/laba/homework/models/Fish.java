@@ -1,11 +1,14 @@
 package laba.homework.models;
 
 import laba.homework.interfaces.ISwim;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Fish extends Animal implements ISwim {
 
+    private static final Logger LOGGER = LogManager.getLogger(Fish.class);
     private boolean fishScales;
 
     public Fish(Integer weight, String color, boolean fishScales) {
@@ -15,12 +18,12 @@ public class Fish extends Animal implements ISwim {
 
     @Override
     public void eat() {
-        System.out.println("Im a fish and I'm eating");
+        LOGGER.info("Im a fish and I'm eating");
     }
 
     @Override
     public void swim() {
-        System.out.println("I'm a fish and I'm swimming");
+        LOGGER.info("I'm a fish and I'm swimming");
     }
 
     @Override

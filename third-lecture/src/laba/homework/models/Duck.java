@@ -3,34 +3,37 @@ package laba.homework.models;
 import laba.homework.exceptions.CannotFlyException;
 import laba.homework.interfaces.IFly;
 import laba.homework.interfaces.ISwim;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Duck extends Animal implements IFly, ISwim {
 
-    private int feathers;
+    private static final Logger LOGGER = LogManager.getLogger(Duck.class);
 
-    //Constructor OverLoading
+    private int feathers;
 
     public Duck(Integer weight, String color, int feathers) {
         super(weight, color);
         this.feathers = feathers;
+        LOGGER.info("Creating a duck");
     }
 
     @Override
     public void eat() {
-        System.out.println("I'm a duck and I'm eating");
+        LOGGER.info("I'm a duck and I'm eating");
     }
 
     @Override
     public void fly() throws CannotFlyException {
         if (feathers < 2000) throw new CannotFlyException("This duck cannot fly because it has few feathers, the minimum is 2000");
-        System.out.println("I'm a duck and I can fly");
+        LOGGER.info("I'm a duck and I can fly");
     }
 
     @Override
     public void swim() {
-        System.out.println("I'm a duck my weight is " + getWeight() + " and I can swim");
+        LOGGER.info("I'm a duck my weight is " + getWeight() + " and I can swim");
     }
 
     @Override

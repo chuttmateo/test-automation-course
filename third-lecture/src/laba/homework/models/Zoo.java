@@ -3,6 +3,8 @@ package laba.homework.models;
 import laba.homework.exceptions.FullZooException;
 import laba.homework.exceptions.UsedTicketException;
 import laba.homework.exceptions.WrongCompanyException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Zoo {
+
+    private static final Logger LOGGER = LogManager.getLogger(Zoo.class);
     private List<Person> people = new ArrayList<>();
     private List<Animal> animals = new ArrayList<>();
     private List<Worker> workers = new ArrayList<>();
@@ -23,25 +27,30 @@ public class Zoo {
     }
 
     public void checkIn(Ticket ticket, Person person) throws UsedTicketException {
+        LOGGER.debug("Checking in 1/3");
         if (capacity == people.size()) throw new FullZooException("this zoo is at maximun capacity");
+        LOGGER.debug("Checking in 2/3");
         if (ticketsIdUsed.contains(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
         ticketsIdUsed.add(ticket.getId());
         people.add(person);
-        System.out.println("You can access to the Zoo");
+        LOGGER.info("You can access to the Zoo");
+        LOGGER.debug("Checking in 3/3");
     }
 
     public void hireWorker(Worker worker) throws WrongCompanyException {
+        LOGGER.debug("Hiring worker 1/2");
         if (!worker.company.equals(name)) throw new WrongCompanyException("This worker cannot work here.");
+        LOGGER.debug("Hiring worker 2/2");
         workers.add(worker);
-        System.out.println("Correctly hired worker");
+        LOGGER.info("Correctly hired worker");
     }
 
     public void countPeople(){
-        System.out.println("In this Zoo there are " + people.size() + " people.");
+        LOGGER.info("In this Zoo there are " + people.size() + " people.");
     }
 
     public void printAnimals(){
-        System.out.println("In this Zoo there are " + animals.size() + " animals.");
+        LOGGER.info("In this Zoo there are " + animals.size() + " animals.");
 
         Map<String, Long> mapAnimalsType = animals.stream().collect(
                 Collectors.groupingBy( a -> a.getClass().getSimpleName(), Collectors.counting() )

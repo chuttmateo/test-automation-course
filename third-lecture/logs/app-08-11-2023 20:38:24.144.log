@@ -1,0 +1,5 @@
+2023-11-08 20:38:24,351 INFO l.h.m.Duck [main] Creating a duck
+2023-11-08 20:38:24,354 INFO l.h.FifthHomework [main] ingfo
+2023-11-08 20:38:24,354 WARN l.h.FifthHomework [main] warn
+2023-11-08 20:38:28,246 INFO l.h.m.Duck [main] I'm a duck and I can fly
+2023-11-08 20:38:28,249 WARN l.h.FifthHomework [main] This worker cannot work here.

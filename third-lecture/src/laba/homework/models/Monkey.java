@@ -2,11 +2,14 @@ package laba.homework.models;
 
 import laba.homework.interfaces.IClimb;
 import laba.homework.interfaces.IHide;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Monkey extends Animal implements IHide, IClimb {
 
+    private static final Logger LOGGER = LogManager.getLogger(Monkey.class);
     private int age;
 
     public Monkey(Integer weight, String color, int age) {
@@ -16,12 +19,12 @@ public class Monkey extends Animal implements IHide, IClimb {
 
     @Override
     public void hideFromPredators() {
-        System.out.println("I'm hiding from the lion and the eagle");
+        LOGGER.info("I'm hiding from the lion and the eagle");
     }
 
     @Override
     public void climbTrees() {
-        System.out.println("I'm climbing a tree");
+        LOGGER.info("I'm climbing a tree");
     }
 
     @Override
@@ -54,6 +57,6 @@ public class Monkey extends Animal implements IHide, IClimb {
 
     @Override
     public void eat() {
-        System.out.println("I'm the monkey and I'm eating");
+        LOGGER.info("I'm the monkey and I'm eating");
     }
 }

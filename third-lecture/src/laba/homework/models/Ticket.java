@@ -1,13 +1,17 @@
 package laba.homework.models;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public final class Ticket {
 
+    private static final Logger LOGGER = LogManager.getLogger(Ticket.class);
     private static int ticketsSold;
     private Person person;
     private final int id;
 
     static {
-        System.out.println("This print is from a static block in Ticket class");
+        LOGGER.info("This print is from a static block in Ticket class");
     }
     public Ticket(Person person) {
         ++ticketsSold;

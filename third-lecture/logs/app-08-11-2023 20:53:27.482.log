@@ -1,0 +1,11 @@
+2023-11-08 20:53:27,683 INFO l.h.m.Duck [main] Creating a duck
+2023-11-08 20:53:27,686 INFO l.h.FifthHomework [main] ingfo
+2023-11-08 20:53:27,686 WARN l.h.FifthHomework [main] warn
+2023-11-08 20:53:30,797 INFO l.h.m.Duck [main] I'm a duck and I can fly
+2023-11-08 20:53:30,798 INFO l.h.m.Ticket [main] This print is from a static block in Ticket class
+2023-11-08 20:53:30,799 DEBUG l.h.m.Zoo [main] Checking in 1/3
+2023-11-08 20:53:30,799 DEBUG l.h.m.Zoo [main] Checking in 2/3
+2023-11-08 20:53:30,800 INFO l.h.m.Zoo [main] You can access to the Zoo
+2023-11-08 20:53:30,800 DEBUG l.h.m.Zoo [main] Checking in 3/3
+2023-11-08 20:53:30,801 DEBUG l.h.m.Zoo [main] Hiring worker 1/2
+2023-11-08 20:53:30,801 WARN l.h.FifthHomework [main] This worker cannot work here.

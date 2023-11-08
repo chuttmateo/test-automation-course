@@ -1,12 +1,15 @@
 package laba.homework.models;
 
 import laba.homework.exceptions.WrongNameException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Vet extends Worker{
 
+    private static final Logger LOGGER = LogManager.getLogger(Vet.class);
     private List<Animal> favoriteAnimals;
 
     public Vet(String firstName, String lastName, String email, Address address, String company, List<Animal> favoriteAnimals) throws WrongNameException {
@@ -16,7 +19,7 @@ public class Vet extends Worker{
 
     @Override
     public void toWork() {
-        System.out.println("I'm a vet and I'm working");
+        LOGGER.info("I'm a vet and I'm working");
     }
 
     @Override

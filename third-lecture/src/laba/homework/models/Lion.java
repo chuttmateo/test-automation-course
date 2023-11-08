@@ -1,10 +1,14 @@
 package laba.homework.models;
 
 import laba.homework.interfaces.IAttack;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Lion extends Animal implements IAttack {
+
+    private static final Logger LOGGER = LogManager.getLogger(Lion.class);
     private int age;
 
     public Lion(Integer weight, String color, int age) {
@@ -43,11 +47,11 @@ public class Lion extends Animal implements IAttack {
 
     @Override
     public void attack() {
-        System.out.println("I'm attacking ");
+        LOGGER.info("I'm attacking");
     }
 
     @Override
     public void eat() {
-        System.out.println("I'm a lion and I'm eating");
+        LOGGER.info("I'm a lion and I'm eating");
     }
 }
