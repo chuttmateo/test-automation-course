@@ -6,9 +6,7 @@ import laba.homework.exceptions.WrongCompanyException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Zoo {
@@ -19,7 +17,7 @@ public class Zoo {
     private List<Worker> workers = new ArrayList<>();
     private String name;
     private Integer capacity;
-    private final List<Integer> ticketsIdUsed = new ArrayList<>();
+    private final Set<Integer> ticketsIdUsed = new HashSet<>();
 
     public Zoo(String name, Integer capacity) {
         this.name = name;
@@ -91,4 +89,13 @@ public class Zoo {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
 }
