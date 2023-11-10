@@ -28,8 +28,10 @@ public class Zoo {
         LOGGER.debug("Checking in 1/3");
         if (capacity == people.size()) throw new FullZooException("this zoo is at maximun capacity");
         LOGGER.debug("Checking in 2/3");
-        if (ticketsIdUsed.contains(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
-        ticketsIdUsed.add(ticket.getId());
+        //if (ticketsIdUsed.contains(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
+        //ticketsIdUsed.add(ticket.getId());
+        //this line does the same as the previous 2 lines
+        if (!ticketsIdUsed.add(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
         people.add(person);
         LOGGER.info("You can access to the Zoo");
         LOGGER.debug("Checking in 3/3");

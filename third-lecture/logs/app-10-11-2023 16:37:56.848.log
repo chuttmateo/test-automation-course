@@ -1,0 +1,5 @@
+2023-11-10 16:37:57,087 INFO l.h.m.Duck [main] Creating a duck
+2023-11-10 16:38:01,189 INFO l.h.m.Duck [main] I'm a duck and I can fly
+2023-11-10 16:38:01,190 INFO l.h.m.Ticket [main] This print is from a static block in Ticket class
+2023-11-10 16:38:01,191 INFO l.h.m.Zoo [main] You can access to the Zoo
+2023-11-10 16:38:01,193 INFO l.h.m.Zoo [main] Correctly hired worker
