@@ -20,7 +20,15 @@ public class SixthHomework {
         custom.add(2);
         custom.add(6);
 
+
         System.out.println("Contains 1: " + custom.contains(1));
+
+        System.out.println("Contains 6: " + custom.contains(6));
+
+        custom.add(9);
+        custom.add(34);
+
+        System.out.println("Contains 34: " + custom.contains(34));
 
         System.out.println("Size: " + custom.size());
 
