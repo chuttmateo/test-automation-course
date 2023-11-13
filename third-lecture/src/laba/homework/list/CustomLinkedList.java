@@ -9,6 +9,14 @@ public class CustomLinkedList<T> implements List<T> {
     Node<T> head;
     int size;
 
+    public CustomLinkedList() {
+    }
+
+    public CustomLinkedList(Collection<? extends T> c) {
+        this();
+        addAll(c);
+    }
+
     @Override
     public boolean add(T t) {
         Node<T> newNode = new Node<>(t);
@@ -28,6 +36,16 @@ public class CustomLinkedList<T> implements List<T> {
     }
 
     @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
     public int size() {
         return size;
     }
@@ -40,7 +58,6 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public boolean contains(Object o) {
         if (head == null) return false;
-
         Node<T> current = head;
         while (current.next != null) {
             if (o.equals(current.data)) return true;
@@ -66,18 +83,11 @@ public class CustomLinkedList<T> implements List<T> {
     }
 
     @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        for (T x : c) {
+            add(x);
+        }
+        return true;
     }
 
     @Override
@@ -144,4 +154,5 @@ public class CustomLinkedList<T> implements List<T> {
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
     }
+
 }
