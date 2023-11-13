@@ -28,6 +28,8 @@ public class SixthHomework {
         custom.add(9);
         custom.add(34);
 
+        System.out.println("method get " + custom.get(5));
+
         System.out.println("Contains 34: " + custom.contains(34));
         System.out.println("Size: " + custom.size());
         System.out.println("Is empty: " + custom.isEmpty());
