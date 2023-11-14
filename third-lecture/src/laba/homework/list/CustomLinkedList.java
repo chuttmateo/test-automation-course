@@ -107,7 +107,6 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public void clear() {
-
     }
 
     @Override

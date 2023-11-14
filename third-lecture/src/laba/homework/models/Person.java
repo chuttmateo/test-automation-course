@@ -12,7 +12,6 @@ public class Person {
     private static final Logger LOGGER = LogManager.getLogger(Person.class);
     private final String firstName;
     private final String lastName;
-
     private final List<String> things = new ArrayList<>();
 
     public Person(String firstName, String lastName) throws WrongNameException {
