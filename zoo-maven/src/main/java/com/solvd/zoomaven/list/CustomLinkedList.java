@@ -16,7 +16,14 @@ public class CustomLinkedList<T> implements List<T> {
         this();
         addAll(c);
     }
-
+    public void show(){
+        Node<T> current = head;
+        while (current.next != null){
+            System.out.println(current.data);
+            current = current.next;
+        }
+        System.out.println(current.data);
+    }
     @Override
     public boolean add(T t) {
         Node<T> newNode = new Node<>(t);
@@ -136,7 +143,23 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException("index out of bounds");
+        T data = null;
+        if (index == 0) {
+            data = head.data;
+            head = head.next;
+        }else {
+            Node<T> current = head;
+            Node<T> nodeToEliminate = null;
+                for (int i = 0; i < index - 1; i++) {
+                    current = current.next;
+                }
+            nodeToEliminate = current.next;
+            current.next = nodeToEliminate.next;
+            data = nodeToEliminate.data;
+        }
+        --size;
+        return data;
     }
 
     @Override

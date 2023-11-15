@@ -1,0 +1,4 @@
+2023-11-14 19:13:59,538 INFO c.s.z.m.Duck [main] Creating a duck
+2023-11-14 19:13:59,542 INFO c.s.z.m.Duck [main] I'm a duck and I'm eating
+2023-11-14 19:13:59,542 INFO c.s.z.m.Fish [main] Im a fish and I'm eating
+2023-11-14 19:13:59,555 INFO c.s.z.m.Duck [main] Creating a duck

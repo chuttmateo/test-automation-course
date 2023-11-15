@@ -1,0 +1,5 @@
+2023-11-14 18:11:16,415 INFO c.s.z.m.Duck [main] Creating a duck
+2023-11-14 18:11:20,379 INFO c.s.z.m.Duck [main] I'm a duck and I can fly
+2023-11-14 18:11:20,381 INFO c.s.z.m.Ticket [main] This print is from a static block in Ticket class
+2023-11-14 18:11:20,382 INFO c.s.z.m.Zoo [main] You can access to the Zoo
+2023-11-14 18:11:20,383 INFO c.s.z.m.Zoo [main] Correctly hired worker

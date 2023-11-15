@@ -10,15 +10,16 @@ public class SixthHomework {
     public static void main(String[] args) {
 
         //overloaded constructor
-        List<Integer> custom = new CustomLinkedList<>();
+        //List<Integer> custom = new CustomLinkedList<>();
+        CustomLinkedList<Integer> custom = new CustomLinkedList<>();
         //List<Integer> custom = new CustomLinkedList<>(List.of(12,234,234,234,2,32,34,234,234,234));
 
-        System.out.println("Is empty: " + custom.isEmpty());
+        /*System.out.println("Is empty: " + custom.isEmpty());
         System.out.println("Size: " + custom.size());
 
         custom.add(1);
-        custom.add(3);
         custom.add(2);
+        custom.add(3);
         custom.add(6);
 
         System.out.println("Contains 1: " + custom.contains(1));
@@ -32,6 +33,35 @@ public class SixthHomework {
         System.out.println("Contains 34: " + custom.contains(34));
         System.out.println("Size: " + custom.size());
         System.out.println("Is empty: " + custom.isEmpty());
+
+        custom.show();
+        System.out.println("Size: " + custom.size());
+
+        custom.remove(3);
+        custom.show();
+        System.out.println("Size: " + custom.size());*/
+
+        custom.add(1);
+        custom.add(2);
+        custom.add(3);
+        custom.add(4);
+        custom.add(5);
+        custom.add(6);
+        custom.add(7);
+        custom.add(8);
+
+        custom.show();
+
+        System.out.println("list size: " + custom.size());
+
+        System.out.println("-----------------");
+        System.out.println("deleted node " + custom.remove(0));
+        System.out.println("-----------------");
+
+        custom.show();
+
+        System.out.println("list size: " + custom.size());
+
 
     }
 
