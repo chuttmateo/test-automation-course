@@ -54,8 +54,11 @@ public class SixthHomework {
 
         System.out.println("list size: " + custom.size());
 
+        //System.out.println(custom.set(7,100));
+
         System.out.println("-----------------");
-        System.out.println("deleted node " + custom.remove(0));
+        //System.out.println("deleted node " + custom.remove(0));
+        custom.add(7, 12312);
         System.out.println("-----------------");
 
         custom.show();
