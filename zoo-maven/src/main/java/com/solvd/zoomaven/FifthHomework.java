@@ -25,16 +25,18 @@ public class FifthHomework {
         //Create 5 custom exceptions.
         // 1 Use try-catch with resources and creating a new person
         Person person = null;
-        try (Scanner scanner = new Scanner(System.in)){
-            System.out.println("Put your firstName:");
-            String firstname = scanner.next();
-            System.out.println("Put your lastName:");
-            String lastname = scanner.next();
-            person = new Person(firstname, lastname);
-        } catch (WrongNameException e) {
-            LOGGER.warn(e.getMessage());
+        Scanner scanner = new Scanner(System.in);
+        while (person == null) {
+            try {
+                System.out.println("Put your firstName:");
+                String firstname = scanner.next();
+                System.out.println("Put your lastName:");
+                String lastname = scanner.next();
+                person = new Person(firstname, lastname);
+            } catch (WrongNameException e) {
+                LOGGER.warn(e.getMessage());
+            }
         }
-
         // 2 Checking if the duck can fly
 
         ((Duck) animals.get(0)).fly();
