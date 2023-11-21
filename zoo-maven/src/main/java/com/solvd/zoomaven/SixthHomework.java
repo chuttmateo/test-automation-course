@@ -2,6 +2,7 @@ package com.solvd.zoomaven;
 
 import com.solvd.zoomaven.list.CustomLinkedList;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class SixthHomework {
@@ -64,7 +65,7 @@ public class SixthHomework {
         custom.show();
 
         System.out.println("list size: " + custom.size());
-
+        System.out.println(custom.indexOf(1));
 
     }
 

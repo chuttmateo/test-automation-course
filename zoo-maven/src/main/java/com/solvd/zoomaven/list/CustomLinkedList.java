@@ -193,7 +193,14 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node<T> current = head;
+        int index = 0;
+        while (current != null){
+            if (o.equals(current.data)) return index;
+            current = current.next;
+            index++;
+        }
+        return -1;
     }
 
     @Override
