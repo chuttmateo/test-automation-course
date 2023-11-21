@@ -1,0 +1,10 @@
+the = 1
+a = 1
+city = 1
+in = 1
+there = 1
+name = 1
+this = 1
+its = 1
+is = 2
+zoo = 2
