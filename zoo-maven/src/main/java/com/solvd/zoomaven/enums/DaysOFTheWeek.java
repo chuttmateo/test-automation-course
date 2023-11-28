@@ -9,8 +9,8 @@ public enum DaysOFTheWeek {
     SATURDAY(150, "Saturday"),
     SUNDAY(150, "Sunday");
 
-    final int capacity;
-    final String value;
+    private final int capacity;
+    private final String value;
     DaysOFTheWeek(int capacity, String value){
         this.capacity = capacity;
         this.value = value;

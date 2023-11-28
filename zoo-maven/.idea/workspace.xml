@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="compile with dependencies">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/DaysOFTheWeek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/Health.java" afterDir="false" />
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="5 lambdas functions used">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/VisitorStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FifthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FifthHomework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FourHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FourHomework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/ThirdHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/ThirdHomework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/exceptions/WrongNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/exceptions/WrongNameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Duck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Duck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Fish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Fish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Lion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Monkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Monkey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/TaxiDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/TaxiDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Vet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Vet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/DaysOFTheWeek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/DaysOFTheWeek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/Health.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Zoo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,6 +35,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2YAZbyX6thRrq6M9hpNQmhtLq1N" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,13 +97,22 @@
       <option name="project" value="LOCAL" />
       <updated>1700171455949</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="5 lambdas functions used">
+      <option name="closed" value="true" />
+      <created>1701204628482</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701204628482</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding properties" />
     <MESSAGE value="+ methods to CustomLinkedList" />
     <MESSAGE value="compile with dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="compile with dependencies" />
+    <MESSAGE value="5 lambdas functions used" />
+    <option name="LAST_COMMIT_MESSAGE" value="5 lambdas functions used" />
   </component>
 </project>

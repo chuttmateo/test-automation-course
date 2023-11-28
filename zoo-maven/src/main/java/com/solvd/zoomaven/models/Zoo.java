@@ -1,6 +1,7 @@
 package com.solvd.zoomaven.models;
 
 import com.solvd.zoomaven.enums.DaysOFTheWeek;
+import com.solvd.zoomaven.enums.VisitorStatus;
 import com.solvd.zoomaven.exceptions.FullZooException;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 public class Zoo {
 
     private static final Logger LOGGER = LogManager.getLogger(Zoo.class);
-    private List<Person> people = new ArrayList<>();
+    private List<Visitor> visitors = new ArrayList<>();
     private List<Animal> animals = new ArrayList<>();
     private List<Worker> workers = new ArrayList<>();
     private String name;
@@ -31,13 +32,14 @@ public class Zoo {
 
     public void checkIn(Ticket ticket, Person person) throws UsedTicketException {
         LOGGER.debug("Checking in 1/3");
-        if (capacity == people.size()) throw new FullZooException("this zoo is at maximun capacity");
+        if (capacity == visitors.size()) throw new FullZooException("this zoo is at maximun capacity");
         LOGGER.debug("Checking in 2/3");
         //if (usedTicketId.contains(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
         //usedTicketId.add(ticket.getId());
         //this line does the same as the previous 2 lines
         if (!usedTicketId.add(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
-        people.add(person);
+        Visitor visitor = new Visitor(person.getFirstName(), person.getLastName(), person.getPhoneNumber(), ticket.getVisitorStatus());
+        visitors.add(visitor);
         LOGGER.info("You can access to the Zoo, we hope you have a good " + day.getValue());
         LOGGER.debug("Checking in 3/3");
     }
@@ -50,8 +52,8 @@ public class Zoo {
         LOGGER.info("Correctly hired worker");
     }
 
-    public void countPeople(){
-        LOGGER.info("In this Zoo there are " + people.size() + " people.");
+    public void countVisitors(){
+        LOGGER.info("In this Zoo there are " + visitors.size() + " visitors.");
     }
 
     public void printAnimals(BiConsumer<String, Long> action){
@@ -65,13 +67,9 @@ public class Zoo {
         //mapAnimalsType.forEach((k,v) -> System.out.printf("%s: %d %n", k,v));
     }
 
-    public List<Person> getPeople() {
-        return people;
+    public List<Visitor> getVisitors() {
+        return visitors;
     }
-
-    /*public void setPeople(List<Person> people) {
-        this.people = people;
-    }*/
 
     public List<Animal> getAnimals() {
         return animals;
@@ -90,10 +88,6 @@ public class Zoo {
         return workers;
     }
 
-    /*public void setWorkers(List<Worker> workers) {
-        this.workers = workers;
-    }*/
-
     public String getName() {
         return name;
     }
@@ -111,7 +105,10 @@ public class Zoo {
     }
 
     public void printPeopleName(Function<Person, String> l){
-        for (Person person : people) {
+        for (Person person : visitors) {
+            LOGGER.info(l.apply(person));
+        }
+        for (Person person : workers) {
             LOGGER.info(l.apply(person));
         }
     }

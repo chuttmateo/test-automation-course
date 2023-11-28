@@ -3,6 +3,7 @@ package com.solvd.zoomaven;
 
 import com.solvd.zoomaven.enums.DaysOFTheWeek;
 import com.solvd.zoomaven.enums.Health;
+import com.solvd.zoomaven.enums.VisitorStatus;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
 import com.solvd.zoomaven.exceptions.WrongNameException;
@@ -47,7 +48,7 @@ public class FifthHomework {
         ((Duck) animals.get(0)).fly();
 
         // 3-4.a Checking if the ticket is valid and if the zoo is at maximum capacity of people
-        Ticket ticket = new Ticket(person);
+        Ticket ticket = new Ticket(person, VisitorStatus.VIP);
         Zoo zoo = new Zoo("Zoo", DaysOFTheWeek.MONDAY);
         Predicate<Animal> predicate = animal -> animal.getHealth() != Health.CRITICAL;
         for (Animal animal : animals) {

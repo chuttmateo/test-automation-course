@@ -2,6 +2,7 @@ package com.solvd.zoomaven;
 
 import com.solvd.zoomaven.enums.DaysOFTheWeek;
 import com.solvd.zoomaven.enums.Health;
+import com.solvd.zoomaven.enums.VisitorStatus;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
 import com.solvd.zoomaven.models.*;
@@ -25,8 +26,8 @@ public class TenthHomework {
         Person person2 = new Person("Mateo", "doe",534535);
 
         try {
-            zoo.checkIn(new Ticket(person), person);
-            zoo.checkIn(new Ticket(person2), person2);
+            zoo.checkIn(new Ticket(person, VisitorStatus.GENERAL), person);
+            zoo.checkIn(new Ticket(person2, VisitorStatus.GENERAL), person2);
 
             zoo.hireWorker(new Vet("jose", "doe", 234234, "jose@example.com", new Address("NY", 47), "the zoo", new ArrayList<>()));
         }catch (UsedTicketException | WrongCompanyException ex){
