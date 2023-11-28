@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IClimb;
 import com.solvd.zoomaven.interfaces.IHide;
 import org.apache.logging.log4j.LogManager;
@@ -12,8 +13,9 @@ public class Monkey extends Animal implements IHide, IClimb {
     private static final Logger LOGGER = LogManager.getLogger(Monkey.class);
     private int age;
 
-    public Monkey(Integer weight, String color, int age) {
-        super(weight, color);
+
+    public Monkey(Integer weight, String color, Health health, int age) {
+        super(weight, color, health);
         this.age = age;
     }
 

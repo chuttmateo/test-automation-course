@@ -11,8 +11,8 @@ public class TaxiDriver extends Worker{
     private static final Logger LOGGER = LogManager.getLogger(TaxiDriver.class);
     private int licenceNumber;
 
-    public TaxiDriver(String firstName, String lastName, String email, Address address, String company, int licenceNumber) throws WrongNameException {
-        super(firstName, lastName, email, address, company);
+    public TaxiDriver(String firstName, String lastName, int phoneNumber, String email, Address address, String company, int licenceNumber) throws WrongNameException {
+        super(firstName, lastName, phoneNumber, email, address, company);
         this.licenceNumber = licenceNumber;
     }
 

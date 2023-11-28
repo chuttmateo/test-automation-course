@@ -13,14 +13,16 @@ public class Person {
     private final String firstName;
     private final String lastName;
     private final List<String> things = new ArrayList<>();
+    private int phoneNumber;
 
-    public Person(String firstName, String lastName) throws WrongNameException {
+    public Person(String firstName, String lastName, int phoneNumber) throws WrongNameException {
         if (firstName.matches(".*\\d.*") || lastName.matches(".*\\d.*")) {
             LOGGER.error("The first name or last name contains numbers");
             throw new WrongNameException("The first name or last name contains numbers");
         }
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -44,5 +46,13 @@ public class Person {
     }
     public void addThing(String thing) {
         things.add(thing);
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.ISwim;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,8 +12,9 @@ public class Fish extends Animal implements ISwim {
     private static final Logger LOGGER = LogManager.getLogger(Fish.class);
     private boolean fishScales;
 
-    public Fish(Integer weight, String color, boolean fishScales) {
-        super(weight, color);
+
+    public Fish(Integer weight, String color, Health health, boolean fishScales) {
+        super(weight, color, health);
         this.fishScales = fishScales;
     }
 
@@ -45,10 +47,11 @@ public class Fish extends Animal implements ISwim {
                 "fishScales=" + fishScales +
                 ", weight=" + weight +
                 ", color='" + color + '\'' +
+                ", health=" + health +
                 '}';
     }
 
-    public boolean isFishScales() {
+    public boolean hasScales() {
         return fishScales;
     }
 

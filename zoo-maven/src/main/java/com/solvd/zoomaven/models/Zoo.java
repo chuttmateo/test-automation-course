@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.DaysOFTheWeek;
 import com.solvd.zoomaven.exceptions.FullZooException;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
@@ -7,6 +8,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Zoo {
@@ -18,10 +22,11 @@ public class Zoo {
     private String name;
     private Integer capacity;
     private final Set<Integer> usedTicketId = new HashSet<>();
-
-    public Zoo(String name, Integer capacity) {
+    private DaysOFTheWeek day;
+    public Zoo(String name, DaysOFTheWeek day) {
         this.name = name;
-        this.capacity = capacity;
+        this.capacity = day.getCapacity();
+        this.day = day;
     }
 
     public void checkIn(Ticket ticket, Person person) throws UsedTicketException {
@@ -33,7 +38,7 @@ public class Zoo {
         //this line does the same as the previous 2 lines
         if (!usedTicketId.add(ticket.getId())) throw new UsedTicketException("This ticket has already been used");
         people.add(person);
-        LOGGER.info("You can access to the Zoo");
+        LOGGER.info("You can access to the Zoo, we hope you have a good " + day.getValue());
         LOGGER.debug("Checking in 3/3");
     }
 
@@ -49,15 +54,15 @@ public class Zoo {
         LOGGER.info("In this Zoo there are " + people.size() + " people.");
     }
 
-    public void printAnimals(){
+    public void printAnimals(BiConsumer<String, Long> action){
         LOGGER.info("In this Zoo there are " + animals.size() + " animals.");
 
         Map<String, Long> mapAnimalsType = animals.stream().collect(
                 Collectors.groupingBy( a -> a.getClass().getSimpleName(), Collectors.counting() )
         );
 
-        mapAnimalsType.forEach((k,v) -> System.out.printf("%s: %d %n", k,v));
-        //System.out.println(mapAnimalsType);
+        mapAnimalsType.forEach(action);
+        //mapAnimalsType.forEach((k,v) -> System.out.printf("%s: %d %n", k,v));
     }
 
     public List<Person> getPeople() {
@@ -72,8 +77,13 @@ public class Zoo {
         return animals;
     }
 
-    public void setAnimals(List<Animal> animals) {
-        this.animals = animals;
+    public void addAnimal(Animal a, Predicate<Animal> predicate){
+        if (predicate.test(a)){
+            animals.add(a);
+            LOGGER.info("Animal successfully added");
+        }else {
+            LOGGER.info("We cannot add this animal to our zoo");
+        }
     }
 
     public List<Worker> getWorkers() {
@@ -98,6 +108,12 @@ public class Zoo {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public void printPeopleName(Function<Person, String> l){
+        for (Person person : people) {
+            LOGGER.info(l.apply(person));
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.solvd.zoomaven;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IFly;
 import com.solvd.zoomaven.models.Duck;
 import com.solvd.zoomaven.models.Eagle;
@@ -27,8 +28,8 @@ public class FourHomework {
 
         System.out.println("2 ---------------------");
         //Use polymorphism with the abstract class and interface from the hierarchy.
-        IFly duck = new Duck(2222, "white", 2000);
-        IFly eagle = new Eagle(5000, "brown", "America");
+        IFly duck = new Duck(2222, "white", Health.HEALTHY, 2000);
+        IFly eagle = new Eagle(5000, "brown", Health.HEALTHY,"America");
 
 
         duck.fly();

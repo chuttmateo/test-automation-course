@@ -1,5 +1,6 @@
 package com.solvd.zoomaven;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.exceptions.WrongNameException;
 import com.solvd.zoomaven.models.*;
 
@@ -23,8 +24,8 @@ public class ThirdHomework {
         // https://drive.google.com/file/d/1ckBdXep63E6FVlErL3jLCg0uoyFfvMHT/view?usp=sharing
 
 
-        Animal duck = new Duck(2000, "white", 10000);
-        Animal fish = new Fish(3000,"brown", true);
+        Animal duck = new Duck(2000, "white", Health.HEALTHY,10000);
+        Animal fish = new Fish(3000,"brown", Health.HEALTHY,true);
 
         List<Animal> animals = new ArrayList<>();
         animals.add(duck);
@@ -32,7 +33,7 @@ public class ThirdHomework {
 
         Worker vet=null;
         try {
-            vet = new Vet("Mateo", "Chutt", "mateo@mateo.com", new Address("MG", 6),"Vet sa", animals);
+            vet = new Vet("Mateo", "Chutt", 34523454, "mateo@mateo.com", new Address("MG", 6),"Vet sa", animals);
 
         }catch (WrongNameException ex){
             ex.printStackTrace();
@@ -52,7 +53,7 @@ public class ThirdHomework {
 
         //overridden equals method
         System.out.println("----------------------------");
-        Animal duck2 = new Duck(2000, "white", 10000);
+        Animal duck2 = new Duck(2000, "white", Health.HEALTHY,10000);
         System.out.println(duck.equals(duck2));
 
         //overridden hashCode method

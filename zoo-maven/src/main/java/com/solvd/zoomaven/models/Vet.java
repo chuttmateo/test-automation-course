@@ -12,8 +12,8 @@ public class Vet extends Worker{
     private static final Logger LOGGER = LogManager.getLogger(Vet.class);
     private List<Animal> favoriteAnimals;
 
-    public Vet(String firstName, String lastName, String email, Address address, String company, List<Animal> favoriteAnimals) throws WrongNameException {
-        super(firstName, lastName, email, address, company);
+    public Vet(String firstName, String lastName, int phoneNumber, String email, Address address, String company, List<Animal> favoriteAnimals) throws WrongNameException {
+        super(firstName, lastName, phoneNumber, email, address, company);
         this.favoriteAnimals = favoriteAnimals;
     }
 

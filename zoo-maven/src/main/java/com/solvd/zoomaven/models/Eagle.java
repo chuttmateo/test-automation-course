@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IAttack;
 import com.solvd.zoomaven.interfaces.IFly;
 import org.apache.logging.log4j.LogManager;
@@ -12,10 +13,11 @@ public class Eagle extends Animal implements IAttack, IFly {
     Logger LOGGER = LogManager.getLogger(Eagle.class);
     private String origin;
 
-    public Eagle(Integer weight, String color, String origin) {
-        super(weight, color);
+    public Eagle(Integer weight, String color, Health health, String origin) {
+        super(weight, color, health);
         this.origin = origin;
     }
+
     @Override
     public void attack() {
         LOGGER.info("I'm the Eagle and I'm attacking");

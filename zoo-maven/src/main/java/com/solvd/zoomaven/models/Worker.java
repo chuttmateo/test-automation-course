@@ -7,8 +7,8 @@ public abstract class Worker extends Person{
     protected Address address;
     protected String company;
 
-    public Worker(String firstName, String lastName, String email, Address address, String company) throws WrongNameException {
-        super(firstName, lastName);
+    public Worker(String firstName, String lastName, int phoneNumber, String email, Address address, String company) throws WrongNameException {
+        super(firstName, lastName, phoneNumber);
         this.email = email;
         this.address = address;
         this.company = company;

@@ -1,6 +1,8 @@
 package com.solvd.zoomaven;
 
 
+import com.solvd.zoomaven.enums.DaysOFTheWeek;
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
 import com.solvd.zoomaven.exceptions.WrongNameException;
@@ -11,14 +13,15 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public class FifthHomework {
     public static void main(String[] args) {
         Logger LOGGER = LogManager.getLogger(FifthHomework.class);
 
         List<Animal> animals = new ArrayList<>();
-        animals.add(new Duck(2000, "white", 2000));
-        animals.add(new Fish(3000,"brown", true));
+        animals.add(new Duck(2000, "white", Health.SICK, 2000));
+        animals.add(new Fish(3000,"brown", Health.HEALTHY,true));
 
 
 
@@ -32,7 +35,9 @@ public class FifthHomework {
                 String firstname = scanner.next();
                 System.out.println("Put your lastName:");
                 String lastname = scanner.next();
-                person = new Person(firstname, lastname);
+                System.out.println("Put your phoneNumber:");
+                int phoneNumber = scanner.nextInt();
+                person = new Person(firstname, lastname, phoneNumber);
             } catch (WrongNameException e) {
                 LOGGER.warn(e.getMessage());
             }
@@ -43,8 +48,11 @@ public class FifthHomework {
 
         // 3-4.a Checking if the ticket is valid and if the zoo is at maximum capacity of people
         Ticket ticket = new Ticket(person);
-        Zoo zoo = new Zoo("Zoo", 10);
-        zoo.setAnimals(animals);
+        Zoo zoo = new Zoo("Zoo", DaysOFTheWeek.MONDAY);
+        Predicate<Animal> predicate = animal -> animal.getHealth() != Health.CRITICAL;
+        for (Animal animal : animals) {
+            zoo.addAnimal(animal, predicate);
+        }
         try {
             zoo.checkIn(ticket, person);
         }catch (UsedTicketException e){
@@ -62,7 +70,7 @@ public class FifthHomework {
         // 5 Adding a worker to the Zoo
         //hireWorker checks if worker.getCompany is equals to the zoo name
         try{
-            zoo.hireWorker(new Vet("Sofia", "Ortega", "sofia@gmail.com", new Address("BA", 100), zoo.getName(), animals));
+            zoo.hireWorker(new Vet("Sofia", "Ortega", 2342134,"sofia@gmail.com", new Address("BA", 100), zoo.getName(), animals));
         }catch (WrongCompanyException | WrongNameException e){
             LOGGER.warn(e.getMessage());
         }
@@ -71,7 +79,6 @@ public class FifthHomework {
 
         //Log messages to the console, file.
         //added: INFO - DEBUG - WARN
-
     }
 
 

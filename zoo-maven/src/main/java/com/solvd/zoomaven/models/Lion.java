@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IAttack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,11 +12,10 @@ public class Lion extends Animal implements IAttack {
     private static final Logger LOGGER = LogManager.getLogger(Lion.class);
     private int age;
 
-    public Lion(Integer weight, String color, int age) {
-        super(weight, color);
+    public Lion(Integer weight, String color, Health health, int age) {
+        super(weight, color, health);
         this.age = age;
     }
-
 
     public int getAge() {
         return age;
