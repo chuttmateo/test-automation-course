@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="5 lambdas functions used">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/VisitorStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FifthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/FifthHomework.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/DaysOFTheWeek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/DaysOFTheWeek.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/enums/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/models/Zoo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
