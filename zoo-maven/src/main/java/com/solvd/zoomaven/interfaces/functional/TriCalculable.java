@@ -1,8 +1,7 @@
 package com.solvd.zoomaven.interfaces.functional;
 
 @FunctionalInterface
-public interface Calculator<T> {
-    T calculate(T x, T y);
+public interface TriCalculable<T> {
+    T calculate(T a, T b, T c);
 
 }
-

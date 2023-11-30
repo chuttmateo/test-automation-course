@@ -3,12 +3,11 @@ package com.solvd.zoomaven;
 import com.solvd.zoomaven.enums.*;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
-import com.solvd.zoomaven.interfaces.functional.Calculator;
-import com.solvd.zoomaven.interfaces.functional.Converter;
-import com.solvd.zoomaven.interfaces.functional.TriCalculator;
+import com.solvd.zoomaven.interfaces.functional.Calculable;
+import com.solvd.zoomaven.interfaces.functional.IConverter;
+import com.solvd.zoomaven.interfaces.functional.TriCalculable;
 import com.solvd.zoomaven.models.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -55,13 +54,13 @@ public class TenthHomework {
 
         //Create 3 custom Lambda functions with generics.
         System.out.println("Create 3 custom Lambda functions with generics.");
-        Calculator<Integer> sum = (x, y)-> x + y;
+        Calculable<Integer> sum = (x, y)-> x + y;
         System.out.println(sum.calculate(9,9));
 
-        Converter<Person, String> personName = p -> person.getFirstName();
+        IConverter<Person, String> personName = p -> person.getFirstName();
         System.out.println(personName.convert(person));
 
-        TriCalculator<Double> avg = (x, y, z) -> (x + y + z) / 3;
+        TriCalculable<Double> avg = (x, y, z) -> (x + y + z) / 3;
         System.out.println(avg.calculate(5.0, 6.0, 10.0));
 
 

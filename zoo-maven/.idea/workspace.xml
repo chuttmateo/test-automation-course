@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="5 lambdas functions used">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TenthHomework.java" afterDir="false" />
-    </list>
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="HW 10 v2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701204628482</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="HW 10 v2">
+      <option name="closed" value="true" />
+      <created>1701293261307</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701293261307</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -107,6 +112,7 @@
     <MESSAGE value="+ methods to CustomLinkedList" />
     <MESSAGE value="compile with dependencies" />
     <MESSAGE value="5 lambdas functions used" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 lambdas functions used" />
+    <MESSAGE value="HW 10 v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW 10 v2" />
   </component>
 </project>
