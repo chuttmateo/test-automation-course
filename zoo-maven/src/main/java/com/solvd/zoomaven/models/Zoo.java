@@ -1,7 +1,6 @@
 package com.solvd.zoomaven.models;
 
 import com.solvd.zoomaven.enums.DaysOFTheWeek;
-import com.solvd.zoomaven.enums.VisitorStatus;
 import com.solvd.zoomaven.exceptions.FullZooException;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
 import com.solvd.zoomaven.exceptions.WrongCompanyException;
