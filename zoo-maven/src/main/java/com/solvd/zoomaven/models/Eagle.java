@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.AnimalHabitat;
 import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IAttack;
 import com.solvd.zoomaven.interfaces.IFly;
@@ -14,7 +15,7 @@ public class Eagle extends Animal implements IAttack, IFly {
     private String origin;
 
     public Eagle(Integer weight, String color, Health health, String origin) {
-        super(weight, color, health);
+        super(weight, color, health, AnimalHabitat.AERIAL);
         this.origin = origin;
     }
 
@@ -38,7 +39,7 @@ public class Eagle extends Animal implements IAttack, IFly {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Eagle eagle = (Eagle) o;
-        return Objects.equals(origin, eagle.origin);
+        return super.equals(o) && Objects.equals(origin, eagle.origin);
     }
 
     @Override

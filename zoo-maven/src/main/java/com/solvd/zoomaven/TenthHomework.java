@@ -71,7 +71,7 @@ public class TenthHomework {
         System.out.println(visitor);
 
         DaysOFTheWeek d = DaysOFTheWeek.FRIDAY;
-        EnclosureType e = EnclosureType.INDOOR;
+        EnclosureType e = EnclosureType.AQUARIUM;
         FoodMenu f = FoodMenu.BURGER;
         Health h = Health.CRITICAL;
         VisitorStatus v = VisitorStatus.CHILD;

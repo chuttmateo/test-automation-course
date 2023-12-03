@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.AnimalHabitat;
 import com.solvd.zoomaven.enums.DaysOFTheWeek;
 import com.solvd.zoomaven.exceptions.FullZooException;
 import com.solvd.zoomaven.exceptions.UsedTicketException;
@@ -16,9 +17,9 @@ import java.util.stream.Collectors;
 public class Zoo {
 
     private static final Logger LOGGER = LogManager.getLogger(Zoo.class);
-    private List<Visitor> visitors = new ArrayList<>();
-    private List<Animal> animals = new ArrayList<>();
-    private List<Worker> workers = new ArrayList<>();
+    private final List<Visitor> visitors = new ArrayList<>();
+    private final List<Enclosure> enclosures = new ArrayList<>();
+    private final List<Worker> workers = new ArrayList<>();
     private String name;
     private Integer capacity;
     private final Set<Integer> usedTicketId = new HashSet<>();
@@ -54,16 +55,17 @@ public class Zoo {
     public void countVisitors(){
         LOGGER.info("In this Zoo there are " + visitors.size() + " visitors.");
     }
-
     public void printAnimals(BiConsumer<String, Long> action){
-        LOGGER.info("In this Zoo there are " + animals.size() + " animals.");
 
-        Map<String, Long> mapAnimalsType = animals.stream().collect(
+        List<Animal> allAnimals = getAllAnimals();
+
+        LOGGER.info("In this Zoo there are " + allAnimals.size() + " animals.");
+
+        Map<String, Long> mapAnimalsType = allAnimals.stream().collect(
                 Collectors.groupingBy( a -> a.getClass().getSimpleName(), Collectors.counting() )
         );
 
         mapAnimalsType.forEach(action);
-        //mapAnimalsType.forEach((k,v) -> System.out.printf("%s: %d %n", k,v));
     }
 
     public List<Visitor> getVisitors() {
@@ -71,12 +73,21 @@ public class Zoo {
     }
 
     public List<Animal> getAnimals() {
-        return animals;
+        return getAllAnimals();
     }
 
     public void addAnimal(Animal a, Predicate<Animal> predicate){
-        if (predicate.test(a)){
-            animals.add(a);
+        boolean contains = getAllAnimals().stream()
+                .anyMatch(animal -> animal.equals(a));
+
+        if (contains) {
+            LOGGER.warn("This animal already is in our zoo");
+            return;
+        }
+
+        Optional<Enclosure> first = getEnclosureByHabitat(a.habitat);
+        if (first.isPresent() && predicate.test(a)){
+            first.get().addAnimal(a);
             LOGGER.info("Animal successfully added");
         }else {
             LOGGER.info("We cannot add this animal to our zoo");
@@ -110,6 +121,22 @@ public class Zoo {
         for (Person person : workers) {
             LOGGER.info(l.apply(person));
         }
+    }
+
+    public void addEnclosure(Enclosure enclosure){
+        enclosures.add(enclosure);
+    }
+
+    private List<Animal> getAllAnimals(){
+        return enclosures.stream()
+                .flatMap((enclosure -> enclosure.getAnimals().stream()))
+                .toList();
+    }
+
+    private Optional<Enclosure> getEnclosureByHabitat(AnimalHabitat animalHabitat){
+        return enclosures.stream()
+                .filter(enclosure -> enclosure.getType().getAnimalHabitat() == animalHabitat)
+                .findFirst();
     }
 
 }

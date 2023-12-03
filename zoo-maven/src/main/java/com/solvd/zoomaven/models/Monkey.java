@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.AnimalHabitat;
 import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IClimb;
 import com.solvd.zoomaven.interfaces.IHide;
@@ -15,7 +16,7 @@ public class Monkey extends Animal implements IHide, IClimb {
 
 
     public Monkey(Integer weight, String color, Health health, int age) {
-        super(weight, color, health);
+        super(weight, color, health, AnimalHabitat.TERRESTRIAL);
         this.age = age;
     }
 
@@ -33,13 +34,14 @@ public class Monkey extends Animal implements IHide, IClimb {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Monkey monkey = (Monkey) o;
-        return age == monkey.age;
+        return super.equals(o) && age == monkey.age;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age);
+        return Objects.hash(super.hashCode(), age);
     }
 
     @Override

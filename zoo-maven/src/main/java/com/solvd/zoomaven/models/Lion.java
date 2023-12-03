@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.AnimalHabitat;
 import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.interfaces.IAttack;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +14,7 @@ public class Lion extends Animal implements IAttack {
     private int age;
 
     public Lion(Integer weight, String color, Health health, int age) {
-        super(weight, color, health);
+        super(weight, color, health, AnimalHabitat.TERRESTRIAL);
         this.age = age;
     }
 
@@ -30,12 +31,12 @@ public class Lion extends Animal implements IAttack {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lion lion = (Lion) o;
-        return age == lion.age;
+        return super.equals(o) && age == lion.age;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age);
+        return Objects.hash(super.hashCode(), age);
     }
 
     @Override

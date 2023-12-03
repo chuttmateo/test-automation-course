@@ -1,5 +1,6 @@
 package com.solvd.zoomaven.models;
 
+import com.solvd.zoomaven.enums.AnimalHabitat;
 import com.solvd.zoomaven.enums.Health;
 import com.solvd.zoomaven.exceptions.CannotFlyException;
 import com.solvd.zoomaven.interfaces.IFly;
@@ -16,7 +17,7 @@ public class Duck extends Animal implements IFly, ISwim {
     private int feathers;
 
     public Duck(Integer weight, String color, Health health, int feathers) {
-        super(weight, color, health);
+        super(weight, color, health, AnimalHabitat.TERRESTRIAL);
         this.feathers = feathers;
         LOGGER.info("Creating a duck");
     }
@@ -42,7 +43,7 @@ public class Duck extends Animal implements IFly, ISwim {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Duck duck = (Duck) o;
-        return feathers == duck.feathers;
+        return super.equals(o) && feathers == duck.feathers;
     }
 
     @Override
@@ -54,8 +55,6 @@ public class Duck extends Animal implements IFly, ISwim {
     public String toString() {
         return "Duck{" +
                 "feathers=" + feathers +
-                ", weight=" + weight +
-                ", color='" + color + '\'' +
                 '}';
     }
 

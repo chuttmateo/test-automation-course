@@ -1,23 +1,36 @@
 package com.solvd.zoomaven;
 
-import com.solvd.zoomaven.models.Person;
-import com.solvd.zoomaven.models.Zoo;
+import com.solvd.zoomaven.enums.DaysOFTheWeek;
+import com.solvd.zoomaven.enums.EnclosureType;
+import com.solvd.zoomaven.enums.Health;
+import com.solvd.zoomaven.models.*;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class EleventhHomework {
 
     public static void main(String[] args) {
         //Add 7 collection streaming in the hierarchy with terminal and non-terminal operations.
+        //there are 5 collection streaming in Zoo class and 4 in EleventhHomework class
+        Enclosure enclosure = new Enclosure(EnclosureType.AQUARIUM);
+        enclosure.addAnimal(new Lion(2345,"red", Health.HEALTHY, 34));
+        Zoo zoo = new Zoo("the zoo", DaysOFTheWeek.MONDAY);
+        zoo.addEnclosure(enclosure);
+        Predicate<Animal> predicate = (a)-> a.getHealth() != Health.CRITICAL;
+        zoo.addAnimal(new Fish(234234, "white", Health.HEALTHY, true), predicate);
+        zoo.addAnimal(new Fish(2342342, "white", Health.HEALTHY, true), predicate);
+        System.out.println(" ");
+
         try {
             //Create object and call method using the only reflection.
             createObject();
         }catch (Exception e){
             e.printStackTrace();
         }
-        //Using reflection extract information(modifiers, return types, parameters, etc)
+        //Using reflection extract information(modifiers, return types, parameters, etc.)
         // about fields, constructors, methods.
         extractInformationFromClassMethods(Zoo.class);
         extractInformationFromClassFields(Zoo.class);
