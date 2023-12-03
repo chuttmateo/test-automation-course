@@ -36,8 +36,21 @@ public class FifthHomework {
                 String firstname = scanner.next();
                 System.out.println("Put your lastName:");
                 String lastname = scanner.next();
+
+                boolean isValid = false;
+                int phoneNumber = 0;
+
                 System.out.println("Put your phoneNumber:");
-                int phoneNumber = scanner.nextInt();
+                while (!isValid){
+                    if (scanner.hasNextInt()){
+                        phoneNumber = scanner.nextInt();
+                        isValid = true;
+                    }else{
+                        System.out.println("Invalid input. Please enter an integer: ");
+                        scanner.next();
+                    }
+                }
+
                 person = new Person(firstname, lastname, phoneNumber);
             } catch (WrongNameException e) {
                 LOGGER.warn(e.getMessage());

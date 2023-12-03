@@ -1,4 +1,7 @@
-package com.solvd.zoomaven.models;
+package com.solvd.zoomaven;
+
+import com.solvd.zoomaven.models.Person;
+import com.solvd.zoomaven.models.Zoo;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
@@ -14,7 +17,8 @@ public class EleventhHomework {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods.
+        //Using reflection extract information(modifiers, return types, parameters, etc)
+        // about fields, constructors, methods.
         extractInformationFromClassMethods(Zoo.class);
         extractInformationFromClassFields(Zoo.class);
         extractInformationFromClassConstructors(Zoo.class);
@@ -48,7 +52,6 @@ public class EleventhHomework {
         System.out.println(firstName);
         System.out.println(lastName);
     }
-
     public static void extractInformationFromClassMethods(Class<?> clazz){
         System.out.println("Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods.");
         System.out.println("Class Name: " + clazz.getSimpleName());
