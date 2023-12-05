@@ -5,12 +5,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Enclosure {
     private static final Logger LOGGER = LogManager.getLogger(Enclosure.class);
     private final EnclosureType type;
-    private final List<Animal> animals = new ArrayList<>();
+    private final Set<Animal> animals = new HashSet<>();
 
     public Enclosure(EnclosureType type) {
         this.type = type;
@@ -25,7 +27,7 @@ public class Enclosure {
         }
     }
 
-    public List<Animal> getAnimals() {
+    public Set<Animal> getAnimals() {
         return animals;
     }
 

@@ -15,6 +15,7 @@ public class EleventhHomework {
     public static void main(String[] args) {
         //Add 7 collection streaming in the hierarchy with terminal and non-terminal operations.
         //there are 5 collection streaming in Zoo class and 4 in EleventhHomework class
+
         Enclosure enclosure = new Enclosure(EnclosureType.AQUARIUM);
         enclosure.addAnimal(new Lion(2345,"red", Health.HEALTHY, 34));
         Zoo zoo = new Zoo("the zoo", DaysOFTheWeek.MONDAY);
@@ -27,49 +28,43 @@ public class EleventhHomework {
         try {
             //Create object and call method using the only reflection.
             createObject();
+            System.out.println(" ");
         }catch (Exception e){
             e.printStackTrace();
         }
         //Using reflection extract information(modifiers, return types, parameters, etc.)
         // about fields, constructors, methods.
-        extractInformationFromClassMethods(Zoo.class);
+        extractInformationFromClassMethods(Person.class);
         extractInformationFromClassFields(Zoo.class);
         extractInformationFromClassConstructors(Zoo.class);
     }
     public static void createObject() throws Exception {
         System.out.println("Create object and call method using the only reflection: ");
-        System.out.println("FIRST WAY");
         Class<Person> clazz =  Person.class;
 
         Person instance = clazz
                 .getConstructor(String.class, String.class, int.class)
                 .newInstance("Mateo", "Chutt", 349857);
 
-        System.out.println(instance.getFirstName());
-        System.out.println(instance.getLastName());
+        Method getFirstName = clazz.getMethod("getFirstName");
+        String firstName = getFirstName.invoke(instance).toString();
 
-
-        System.out.println("SECOND WAY");
-        Class<?> clazz1 = Person.class;
-        Object instance2 = clazz
-                .getConstructor(String.class, String.class, int.class)
-                .newInstance("Mateo", "Chutt", 349857);
-
-
-        Method getFirstName = clazz1.getMethod("getFirstName");
-        String firstName = getFirstName.invoke(instance2).toString();
-
-        Method getLastName = clazz1.getMethod("getLastName");
-        String lastName = getLastName.invoke(instance2).toString();
+        Method getLastName = clazz.getMethod("getLastName");
+        String lastName = getLastName.invoke(instance).toString();
 
         System.out.println(firstName);
         System.out.println(lastName);
+        System.out.println("We can also use getFirstName normally");
+        System.out.println(instance.getFirstName());
+        System.out.println(instance.getLastName());
+
     }
     public static void extractInformationFromClassMethods(Class<?> clazz){
         System.out.println("Using reflection extract information(modifiers, return types, parameters, etc) about fields, constructors, methods.");
         System.out.println("Class Name: " + clazz.getSimpleName());
         System.out.println(" ");
-        Method[] methods = clazz.getMethods();
+        //Method[] methods = clazz.getMethods(); //This Method returns all public methods, including Object class methods
+        Method[] methods = clazz.getDeclaredMethods();
         Arrays.stream(methods)
                 .forEach(method -> {
                     System.out.println("Method Name: " + method.getName());

@@ -57,7 +57,7 @@ public class Zoo {
     }
     public void printAnimals(BiConsumer<String, Long> action){
 
-        List<Animal> allAnimals = getAllAnimals();
+        Set<Animal> allAnimals = getAllAnimals();
 
         LOGGER.info("In this Zoo there are " + allAnimals.size() + " animals.");
 
@@ -72,14 +72,14 @@ public class Zoo {
         return visitors;
     }
 
-    public List<Animal> getAnimals() {
+    public Set<Animal> getAnimals() {
         return getAllAnimals();
     }
 
     public void addAnimal(Animal a, Predicate<Animal> predicate){
         boolean contains = getAllAnimals().stream()
                 .anyMatch(animal -> animal.equals(a));
-
+        //boolean contains1 = getAnimals().contains(a);
         if (contains) {
             LOGGER.warn("This animal already is in our zoo");
             return;
@@ -127,10 +127,10 @@ public class Zoo {
         enclosures.add(enclosure);
     }
 
-    private List<Animal> getAllAnimals(){
+    private Set<Animal> getAllAnimals(){
         return enclosures.stream()
                 .flatMap((enclosure -> enclosure.getAnimals().stream()))
-                .toList();
+                .collect(Collectors.toSet());
     }
 
     private Optional<Enclosure> getEnclosureByHabitat(AnimalHabitat animalHabitat){
