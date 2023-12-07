@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="HW 12 v1">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="HW 12 v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TwelfthHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoomaven/TwelfthHomework.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,9 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.ConectionP.executor": "Run",
     "Application.DaemonThread.executor": "Run",
+    "Application.SynchronizedSample.executor": "Run",
     "Application.TwelfthHomework.executor": "Run",
+    "Application.VolatileSample.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701735575861</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="HW 12 v2">
+      <option name="closed" value="true" />
+      <created>1701952928275</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701952928275</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,6 +194,7 @@
     <MESSAGE value="HW 5 v2" />
     <MESSAGE value="HW 11 v2" />
     <MESSAGE value="HW 11 v3" />
-    <option name="LAST_COMMIT_MESSAGE" value="HW 11 v3" />
+    <MESSAGE value="HW 12 v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW 12 v2" />
   </component>
 </project>

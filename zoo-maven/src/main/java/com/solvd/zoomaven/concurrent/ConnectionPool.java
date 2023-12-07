@@ -1,7 +1,7 @@
 package com.solvd.zoomaven.concurrent;
 
-import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ConnectionPool {
 
@@ -10,7 +10,7 @@ public class ConnectionPool {
     private static volatile ConnectionPool connectionPoolInstance;
 
     private ConnectionPool(int capacity) {
-        q = new LinkedList<>();
+        q = new ConcurrentLinkedQueue<>();
         this.capacity = capacity;
     }
 
