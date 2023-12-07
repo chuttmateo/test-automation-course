@@ -2,7 +2,7 @@ package com.solvd.zoomaven.concurrent;
 
 public class VolatileSample {
 
-    public static boolean stop = false;
+    public static volatile boolean stop = false;
     private static boolean valueOfStopInReader;
 
     public static void main(String[] args) throws InterruptedException {
