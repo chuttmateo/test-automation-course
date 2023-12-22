@@ -3,17 +3,20 @@ package com.solvd.zoo.dao.impl;
 import com.solvd.zoo.dao.IVeterinarianDAO;
 import com.solvd.zoo.dao.connectionpool.ConnectionPool;
 import com.solvd.zoo.model.Veterinarian;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VeterinarianDAO implements IVeterinarianDAO {
+    private static final Logger LOGGER = LogManager.getLogger(VeterinarianDAO.class);
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getConnectionPool();
 
     @Override
     public Veterinarian getEntityById(long id) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         Veterinarian veterinarian = new Veterinarian();
 
@@ -27,18 +30,18 @@ public class VeterinarianDAO implements IVeterinarianDAO {
                 veterinarian.setFirstName(resultSet.getString(3));
                 veterinarian.setLastName(resultSet.getString(4));
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return veterinarian;
     }
 
     @Override
     public void saveEntity(Veterinarian entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -53,19 +56,18 @@ public class VeterinarianDAO implements IVeterinarianDAO {
             while (generatedKeys.next()){
                 entity.setId(generatedKeys.getLong(1));
             }
-
+            generatedKeys.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
 
     }
 
     @Override
     public void updateEntity(Veterinarian entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -77,16 +79,15 @@ public class VeterinarianDAO implements IVeterinarianDAO {
             ps.setLong(4,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void removeEntity(Veterinarian entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -95,16 +96,15 @@ public class VeterinarianDAO implements IVeterinarianDAO {
             ps.setLong(1,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public List<Veterinarian> getEntities() {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         List<Veterinarian> list = new ArrayList<>();
 
@@ -119,10 +119,11 @@ public class VeterinarianDAO implements IVeterinarianDAO {
                 veterinarian.setLastName(resultSet.getString(4));
                 list.add(veterinarian);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return list;
     }

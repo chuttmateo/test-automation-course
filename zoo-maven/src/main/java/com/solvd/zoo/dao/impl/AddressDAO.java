@@ -3,16 +3,19 @@ package com.solvd.zoo.dao.impl;
 import com.solvd.zoo.dao.IAddressDAO;
 import com.solvd.zoo.dao.connectionpool.ConnectionPool;
 import com.solvd.zoo.model.Address;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddressDAO implements IAddressDAO {
+    private static final Logger LOGGER = LogManager.getLogger(AddressDAO.class);
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getConnectionPool();
     @Override
     public Address getEntityById(long id) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         Address address = new Address();
 
@@ -24,18 +27,18 @@ public class AddressDAO implements IAddressDAO {
                 address.setId(resultSet.getLong(1));
                 address.setCity(resultSet.getString(2));
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return address;
     }
 
     @Override
     public void saveEntity(Address entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -48,18 +51,17 @@ public class AddressDAO implements IAddressDAO {
             while (generatedKeys.next()){
                 entity.setId(generatedKeys.getLong(1));
             }
-
+            generatedKeys.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void updateEntity(Address entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -69,16 +71,15 @@ public class AddressDAO implements IAddressDAO {
             ps.setLong(2,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void removeEntity(Address entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -87,16 +88,15 @@ public class AddressDAO implements IAddressDAO {
             ps.setLong(1,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public List<Address> getEntities() {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         List<Address> list = new ArrayList<>();
 
@@ -109,10 +109,11 @@ public class AddressDAO implements IAddressDAO {
                 address.setCity(resultSet.getString(2));
                 list.add(address);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return list;
     }

@@ -3,16 +3,19 @@ package com.solvd.zoo.dao.impl;
 import com.solvd.zoo.dao.IPassportDAO;
 import com.solvd.zoo.dao.connectionpool.ConnectionPool;
 import com.solvd.zoo.model.Passport;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PassportDAO implements IPassportDAO {
+    private static final Logger LOGGER = LogManager.getLogger(PassportDAO.class);
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getConnectionPool();
     @Override
     public Passport getEntityById(long id) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         Passport passport = new Passport();
 
@@ -24,18 +27,18 @@ public class PassportDAO implements IPassportDAO {
                 passport.setId(resultSet.getLong(1));
                 passport.setNumber(resultSet.getString(2));
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return passport;
     }
 
     @Override
     public void saveEntity(Passport entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -48,17 +51,17 @@ public class PassportDAO implements IPassportDAO {
             while (rs.next()){
                 entity.setId(rs.getLong(1));
             }
+            rs.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void updateEntity(Passport entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -68,16 +71,15 @@ public class PassportDAO implements IPassportDAO {
             ps.setLong(2,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void removeEntity(Passport entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -86,16 +88,15 @@ public class PassportDAO implements IPassportDAO {
             ps.setLong(1,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public List<Passport> getEntities() {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         List<Passport> list = new ArrayList<>();
 
@@ -108,10 +109,11 @@ public class PassportDAO implements IPassportDAO {
                 passport.setNumber(resultSet.getString(2));
                 list.add(passport);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return list;
     }

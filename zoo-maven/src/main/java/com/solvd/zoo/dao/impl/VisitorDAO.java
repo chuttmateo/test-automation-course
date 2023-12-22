@@ -3,16 +3,19 @@ package com.solvd.zoo.dao.impl;
 import com.solvd.zoo.dao.IVisitorDAO;
 import com.solvd.zoo.dao.connectionpool.ConnectionPool;
 import com.solvd.zoo.model.Visitor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VisitorDAO implements IVisitorDAO {
+    private static final Logger LOGGER = LogManager.getLogger(VisitorDAO.class);
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getConnectionPool();
     @Override
     public Visitor getEntityById(long id) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         Visitor visitor = new Visitor();
 
@@ -25,18 +28,18 @@ public class VisitorDAO implements IVisitorDAO {
                 visitor.setFirstName(resultSet.getString(2));
                 visitor.setLastName(resultSet.getString(3));
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return visitor;
     }
 
     @Override
     public void saveEntity(Visitor entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -50,18 +53,17 @@ public class VisitorDAO implements IVisitorDAO {
             while (generatedKeys.next()){
                 entity.setId(generatedKeys.getLong(1));
             }
-
+            generatedKeys.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void updateEntity(Visitor entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -72,16 +74,15 @@ public class VisitorDAO implements IVisitorDAO {
             ps.setLong(3,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void removeEntity(Visitor entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -90,16 +91,15 @@ public class VisitorDAO implements IVisitorDAO {
             ps.setLong(1,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public List<Visitor> getEntities() {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         List<Visitor> list = new ArrayList<>();
 
@@ -113,10 +113,11 @@ public class VisitorDAO implements IVisitorDAO {
                 visitor.setLastName(resultSet.getString(3));
                 list.add(visitor);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return list;
     }

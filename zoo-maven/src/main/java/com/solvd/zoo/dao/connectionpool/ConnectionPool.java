@@ -37,6 +37,7 @@ public class ConnectionPool {
         for (int i = 0; i < CONNECTION_POOL_CAPACITY; i++) {
             q.add(getConnectionFromDriverManager());
         }
+        LOGGER.info("connection pool initialized");
     }
 
     public static ConnectionPool getConnectionPool() {
@@ -55,7 +56,7 @@ public class ConnectionPool {
                 try {
                     q.wait();
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    LOGGER.warn(e.getMessage());
                 }
             }
             q.add(n);
@@ -69,7 +70,7 @@ public class ConnectionPool {
                 try {
                     q.wait();
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    LOGGER.warn(e.getMessage());
                 }
             }
             Connection element = q.poll();
@@ -82,7 +83,7 @@ public class ConnectionPool {
         try {
             conn = DriverManager.getConnection(url, userName, password);
         } catch (SQLException e) {
-            LOGGER.info(e.getMessage());
+            LOGGER.warn(e.getMessage());
         }
         return conn;
     }

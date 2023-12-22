@@ -5,16 +5,19 @@ import com.solvd.zoo.dao.connectionpool.ConnectionPool;
 import com.solvd.zoo.model.Address;
 import com.solvd.zoo.model.Employee;
 import com.solvd.zoo.model.Passport;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAO implements IEmployeeDAO {
+    private static final Logger LOGGER = LogManager.getLogger(EmployeeDAO.class);
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getConnectionPool();
     @Override
     public Employee getEntityById(long id) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         Employee employee = new Employee();
 
@@ -36,18 +39,18 @@ public class EmployeeDAO implements IEmployeeDAO {
                 a.setId(resultSet.getLong(5));
                 employee.setAddress(a);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return employee;
     }
 
     @Override
     public void saveEntity(Employee entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -63,17 +66,17 @@ public class EmployeeDAO implements IEmployeeDAO {
             while (rs.next()){
                 entity.setId(rs.getLong(1));
             }
+            rs.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void updateEntity(Employee entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -86,16 +89,15 @@ public class EmployeeDAO implements IEmployeeDAO {
             ps.setLong(5,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public void removeEntity(Employee entity) {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         if (entity == null) return;
 
@@ -104,16 +106,15 @@ public class EmployeeDAO implements IEmployeeDAO {
             ps.setLong(1,entity.getId());
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
     }
 
     @Override
     public List<Employee> getEntities() {
-        ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-        Connection conn = connectionPool.getConnection();
+        Connection conn = CONNECTION_POOL.getConnection();
 
         List<Employee> list = new ArrayList<>();
 
@@ -141,10 +142,11 @@ public class EmployeeDAO implements IEmployeeDAO {
                 employee.setAddress(a);
                 list.add(employee);
             }
+            resultSet.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn(e.getMessage());
         }finally {
-            connectionPool.releaseConnection(conn);
+            CONNECTION_POOL.releaseConnection(conn);
         }
         return list;
     }
