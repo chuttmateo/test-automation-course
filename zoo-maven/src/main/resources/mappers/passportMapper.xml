@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.zoo.dao.IPassportDAO">
+
+    <resultMap id="result" autoMapping="false" type="com.solvd.zoo.model.Passport">
+        <result property="id" column="id" />
+        <result property="number" column="number" />
+    </resultMap>
+
+    <!-- for complex mapping we should use resultMap="result" -->
+    <select id="getEntityById" parameterType="Long" resultType="com.solvd.zoo.model.Passport" >
+        select id, number from passports where id = #{id}
+    </select>
+
+    <insert id="saveEntity" parameterType="com.solvd.zoo.model.Passport" useGeneratedKeys="true" keyProperty="id">
+        insert into passports (number) values (#{number})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.zoo.model.Passport" >
+        UPDATE passports SET number=#{number} WHERE id=#{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="com.solvd.zoo.model.Passport" >
+        DELETE FROM passports WHERE id=#{id}
+    </delete>
+    <!-- for complex mapping we should use resultMap="result" -->
+    <select id="getEntities" resultMap="result">
+        SELECT * from passports
+    </select>
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.zoo.dao.IAddressDAO">
+
+    <resultMap id="resulta" autoMapping="false" type="com.solvd.zoo.model.Address">
+        <result property="id" column="id"/>
+        <result property="city" column="city"/>
+    </resultMap>
+
+    <select id="getEntityById" parameterType="Long" resultMap="resulta">
+        select * from addresses where id = #{id}
+    </select>
+
+    <insert id="saveEntity" parameterType="com.solvd.zoo.model.Address" useGeneratedKeys="true" keyProperty="id">
+        insert into addresses (city)
+        values (#{city})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.zoo.model.Address">
+        update addresses set city = #{city} where id = #{id}
+    </update>
+
+    <delete id="removeEntity">
+        delete from addresses where id = #{id}
+    </delete>
+
+    <select id="getEntities" resultMap="resulta">select * from addresses</select>
+
+</mapper>

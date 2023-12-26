@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: HW 3 v1">
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: HW 3 v2 changes in persistence layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app-14-11-2023 17:55:38.505.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app-14-11-2023 18:11:16.231.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app-14-11-2023 19:12:13.310.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/connectionpool/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/connectionpool/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/AddressDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/PassportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/dao/impl/PassportDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +42,7 @@
     &quot;Application.ConectionP.executor&quot;: &quot;Run&quot;,
     &quot;Application.DaemonThread.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyBatisMain.executor&quot;: &quot;Run&quot;,
     &quot;Application.SynchronizedSample.executor&quot;: &quot;Run&quot;,
     &quot;Application.TwelfthHomework.executor&quot;: &quot;Run&quot;,
     &quot;Application.VolatileSample.executor&quot;: &quot;Run&quot;,
@@ -74,6 +69,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="MyBatisMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.zoo.MyBatisMain" />
+      <module name="zoo-maven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.zoo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -85,6 +93,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MyBatisMain" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -206,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703156955037</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Block 2: HW 3 v2 changes in persistence layer">
+      <option name="closed" value="true" />
+      <created>1703247159172</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703247159172</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +244,17 @@
     <MESSAGE value="HW 12 v2" />
     <MESSAGE value="Block 2: HW 1 v1" />
     <MESSAGE value="Block 2: HW 3 v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Block 2: HW 3 v1" />
+    <MESSAGE value="Block 2: HW 3 v2 changes in persistence layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block 2: HW 3 v2 changes in persistence layer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.apache.ibatis.binding.BindingException" package="org.apache.ibatis.binding" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
