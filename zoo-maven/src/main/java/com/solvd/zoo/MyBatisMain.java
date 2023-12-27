@@ -1,17 +1,21 @@
 package com.solvd.zoo;
 
 import com.solvd.zoo.dao.IAddressDAO;
+import com.solvd.zoo.dao.IEmployeeDAO;
 import com.solvd.zoo.dao.IPassportDAO;
 import com.solvd.zoo.dao.implMyBatis.AddressDAOMyBatis;
+import com.solvd.zoo.dao.implMyBatis.EmployeeDAOMyBatis;
 import com.solvd.zoo.dao.implMyBatis.PassportDAOMyBatis;
 import com.solvd.zoo.model.Address;
+import com.solvd.zoo.model.Employee;
 import com.solvd.zoo.model.Passport;
 
 
 public class MyBatisMain {
     public static void main(String[] args) {
-        testAddressMyBatis();
-        testPassportDAOMyBatis();
+        //testAddressMyBatis();
+        //testPassportDAOMyBatis();
+        testEmployeeMyBatis();
     }
     public static void testPassportDAOMyBatis() {
         IPassportDAO dao = new PassportDAOMyBatis();
@@ -64,5 +68,46 @@ public class MyBatisMain {
         dao.removeEntity(address);
         System.out.println("All entities:");
         dao.getEntities().forEach(System.out::println);
+    }
+    public static void testEmployeeMyBatis(){
+        IEmployeeDAO employeeDAO = new EmployeeDAOMyBatis();
+        IPassportDAO passportDAO = new PassportDAOMyBatis();
+        IAddressDAO addressDAO = new AddressDAOMyBatis();
+
+        // Retrieve entity by ID and print the result
+        System.out.println("Entity by ID: " + employeeDAO.getEntityById(1L));
+
+        // Create an Employee
+        Address address = new Address();
+        address.setCity(String.format("CITY: %.5f", Math.random()));
+        addressDAO.saveEntity(address);
+        Passport passport = new Passport();
+        passport.setNumber(String.format("NUMBER: %.5f", Math.random()));
+        passportDAO.saveEntity(passport);
+
+        Employee employee = new Employee();
+        employee.setLastName("lastName");
+        employee.setFirstName("firstName");
+        employee.setPassport(passport);
+        employee.setAddress(address);
+        employeeDAO.saveEntity(employee);
+
+        System.out.println("Employee after saving: " + employee);
+
+        // Update the Address object's number and update it in the database
+        address.setCity("NEW CITY:  1");
+        passport.setNumber("NEW NUMBER:  1");
+        employeeDAO.updateEntity(employee);
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        //Remove the Address entity and print all entities
+        //employeeDAO.removeEntity(employee);
+        System.out.println("All entities:");
+        employeeDAO.getEntities().forEach(System.out::println);
     }
 }

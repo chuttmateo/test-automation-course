@@ -19,5 +19,6 @@
     <mappers>
         <mapper resource="mappers/addressMapper.xml"/>
         <mapper resource="mappers/passportMapper.xml"/>
+        <mapper resource="mappers/employeeMapper.xml"/>
     </mappers>
 </configuration>

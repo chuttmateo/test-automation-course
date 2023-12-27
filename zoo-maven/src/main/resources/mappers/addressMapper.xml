@@ -5,12 +5,12 @@
 
 <mapper namespace="com.solvd.zoo.dao.IAddressDAO">
 
-    <resultMap id="resulta" autoMapping="false" type="com.solvd.zoo.model.Address">
+    <resultMap id="addressResult" autoMapping="false" type="com.solvd.zoo.model.Address">
         <result property="id" column="id"/>
         <result property="city" column="city"/>
     </resultMap>
 
-    <select id="getEntityById" parameterType="Long" resultMap="resulta">
+    <select id="getEntityById" parameterType="Long" resultMap="addressResult">
         select * from addresses where id = #{id}
     </select>
 
@@ -27,6 +27,6 @@
         delete from addresses where id = #{id}
     </delete>
 
-    <select id="getEntities" resultMap="resulta">select * from addresses</select>
+    <select id="getEntities" resultMap="addressResult">select * from addresses</select>
 
 </mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.zoo.dao.IEmployeeDAO">
+
+    <sql id="select">
+        SELECT
+        e.id as employee_id, e.first_name as employee_first_name, e.last_name as employee_last_name,
+        p.id as passport_id, p.number passport_number,
+        a.id as address_id, a.city as address_city
+        FROM employees e
+        LEFT JOIN passports p ON e.passport_id=p.id
+        LEFT JOIN addresses a ON e.address_id=a.id
+    </sql>
+
+    <resultMap id="result" type="com.solvd.zoo.model.Employee" autoMapping="false">
+        <result property="id" column="employee_id"/>
+        <result property="firstName" column="employee_first_name"/>
+        <result property="lastName" column="employee_last_name"/>
+        <association
+                property="passport"
+                javaType="com.solvd.zoo.model.Passport"
+                resultMap="com.solvd.zoo.dao.IPassportDAO.result"
+                columnPrefix="passport_" 
+        />
+        <association
+                property="address"
+                javaType="com.solvd.zoo.model.Address"
+                resultMap="com.solvd.zoo.dao.IAddressDAO.addressResult"
+                columnPrefix="address_"
+        />
+        <!--<association property="passport" javaType="com.solvd.zoo.model.Passport">
+            <result property="id" column="passport_id" />
+            <result property="number" column="passport_number" />
+        </association>
+        <association property="address" javaType="com.solvd.zoo.model.Address">
+            <result property="id" column="address_id"/>
+            <result property="city" column="address_city"/>
+        </association>-->
+    </resultMap>
+
+    <select id="getEntityById" resultMap="result">
+        <include refid="select"/>
+        WHERE e.id=#{id}
+    </select>
+    
+    <insert id="saveEntity" parameterType="com.solvd.zoo.model.Employee" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO employees (first_name,last_name,passport_id,address_id)VALUES(#{firstName},#{lastName},#{passport.id},#{address.id})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.solvd.zoo.model.Employee">
+        UPDATE employees SET first_name=#{firstName}, last_name=#{lastName}, passport_id=#{passport.id}, address_id=#{address.id} WHERE id=#{id}
+    </update>
+
+    <delete id="removeEntity" parameterType="com.solvd.zoo.model.Employee">
+        DELETE FROM employees WHERE id=#{id}
+    </delete>
+
+    <select id="getEntities" resultMap="result">
+        <include refid="select"/>
+    </select>
+</mapper>

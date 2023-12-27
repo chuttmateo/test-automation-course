@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: HW 3 v2 changes in persistence layer">
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: HW 4 v1 Address and Passport Implemented using MyBatis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/MyBatisMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/MyBatisMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/addressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/addressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703247159172</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Block 2: HW 4 v1 Address and Passport Implemented using MyBatis">
+      <option name="closed" value="true" />
+      <created>1703632319581</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703632319581</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -245,7 +255,8 @@
     <MESSAGE value="Block 2: HW 1 v1" />
     <MESSAGE value="Block 2: HW 3 v1" />
     <MESSAGE value="Block 2: HW 3 v2 changes in persistence layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Block 2: HW 3 v2 changes in persistence layer" />
+    <MESSAGE value="Block 2: HW 4 v1 Address and Passport Implemented using MyBatis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block 2: HW 4 v1 Address and Passport Implemented using MyBatis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
