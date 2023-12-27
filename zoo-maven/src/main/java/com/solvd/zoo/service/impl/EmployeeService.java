@@ -11,14 +11,14 @@ import java.util.List;
 
 public class EmployeeService implements IEmployeeService {
 
-    private IEmployeeDAO employeeDAO;
-    private IPassportService passportService;
-    private IAddressService addressService;
+    private final IEmployeeDAO employeeDAO;
+    private final IPassportService passportService;
+    private final IAddressService addressService;
 
-    public EmployeeService() {
-        this.employeeDAO = new EmployeeDAO();
-        this.passportService = new PassportService();
-        this.addressService = new AddressService();
+    public EmployeeService(IEmployeeDAO employeeDAO, IPassportService passportService, IAddressService addressService) {
+        this.employeeDAO = employeeDAO;
+        this.passportService = passportService;
+        this.addressService = addressService;
     }
 
     @Override

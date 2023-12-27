@@ -9,10 +9,10 @@ import java.util.List;
 
 public class PassportService implements IPassportService {
 
-    private IPassportDAO passportDAO;
+    private final IPassportDAO passportDAO;
 
-    public PassportService() {
-        this.passportDAO = new PassportDAO();
+    public PassportService(IPassportDAO passportDAO) {
+        this.passportDAO = passportDAO;
     }
 
     @Override

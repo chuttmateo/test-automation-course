@@ -7,7 +7,7 @@ import com.solvd.zoo.service.IVisitorService;
 import java.util.List;
 
 public class VisitorService implements IVisitorService {
-    private IVisitorDAO visitorDAO;
+    private final IVisitorDAO visitorDAO;
 
     public VisitorService(IVisitorDAO visitorDAO) {
         this.visitorDAO = visitorDAO;
@@ -15,26 +15,26 @@ public class VisitorService implements IVisitorService {
 
     @Override
     public Visitor getEntityById(long id) {
-        return null;
+        return visitorDAO.getEntityById(id);
     }
 
     @Override
     public void saveEntity(Visitor entity) {
-
+        visitorDAO.saveEntity(entity);
     }
 
     @Override
     public void updateEntity(Visitor entity) {
-
+        visitorDAO.updateEntity(entity);
     }
 
     @Override
     public void removeEntity(Visitor entity) {
-
+        visitorDAO.removeEntity(entity);
     }
 
     @Override
     public List<Visitor> getEntities() {
-        return null;
+        return visitorDAO.getEntities();
     }
 }

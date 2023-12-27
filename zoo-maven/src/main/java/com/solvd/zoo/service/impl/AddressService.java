@@ -8,10 +8,10 @@ import com.solvd.zoo.service.IAddressService;
 import java.util.List;
 
 public class AddressService implements IAddressService {
-    private IAddressDAO addressDAO;
+    private final IAddressDAO addressDAO;
 
-    public AddressService() {
-        this.addressDAO = new AddressDAO();
+    public AddressService(IAddressDAO addressDAO) {
+        this.addressDAO = addressDAO;
     }
 
     @Override
