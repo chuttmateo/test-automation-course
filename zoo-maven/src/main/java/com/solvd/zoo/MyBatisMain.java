@@ -3,19 +3,23 @@ package com.solvd.zoo;
 import com.solvd.zoo.dao.IAddressDAO;
 import com.solvd.zoo.dao.IEmployeeDAO;
 import com.solvd.zoo.dao.IPassportDAO;
+import com.solvd.zoo.dao.IVisitorDAO;
 import com.solvd.zoo.dao.implMyBatis.AddressDAOMyBatis;
 import com.solvd.zoo.dao.implMyBatis.EmployeeDAOMyBatis;
 import com.solvd.zoo.dao.implMyBatis.PassportDAOMyBatis;
+import com.solvd.zoo.dao.implMyBatis.VisitorDAOMyBatis;
 import com.solvd.zoo.model.Address;
 import com.solvd.zoo.model.Employee;
 import com.solvd.zoo.model.Passport;
+import com.solvd.zoo.model.Visitor;
 
 
 public class MyBatisMain {
     public static void main(String[] args) {
         //testAddressMyBatis();
         //testPassportDAOMyBatis();
-        testEmployeeMyBatis();
+        //testEmployeeMyBatis();
+        testVisitorMyBatis();
     }
     public static void testPassportDAOMyBatis() {
         IPassportDAO dao = new PassportDAOMyBatis();
@@ -110,4 +114,33 @@ public class MyBatisMain {
         System.out.println("All entities:");
         employeeDAO.getEntities().forEach(System.out::println);
     }
+    public static void testVisitorMyBatis(){
+        IVisitorDAO dao = new VisitorDAOMyBatis();
+
+        // Retrieve entity by ID and print the result
+        System.out.println("Entity by ID: " + dao.getEntityById(1L));
+
+        // Create a Visitor, set its first_name and last_name, and save it
+        Visitor visitor = new Visitor();
+        visitor.setFirstName("Mateo");
+        visitor.setLastName("Chutt");
+        dao.saveEntity(visitor);
+        System.out.println("Visitor after saving: " + visitor);
+
+        // Update the Visitor object's number and update it in the database
+        visitor.setFirstName("new firstName");
+        visitor.setLastName("new lastName");
+        dao.updateEntity(visitor);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Remove the Visitor entity and print all entities
+        dao.removeEntity(visitor);
+        System.out.println("All entities:");
+        dao.getEntities().forEach(System.out::println);
+    }
+
 }

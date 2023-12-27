@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.zoo.dao.IVisitorDAO">
+
+    <resultMap id="visitorResultMap" type="com.solvd.zoo.model.Visitor" autoMapping="false">
+        <result property="id" column="id"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+    </resultMap>
+
+    <select id="getEntityById" parameterType="Long" resultMap="visitorResultMap">
+        SELECT id, first_name, last_name FROM visitors where id = #{id}
+    </select>
+    <insert id="saveEntity" parameterType="com.solvd.zoo.model.Visitor" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO visitors (first_name, last_name) VALUES (#{firstName},#{lastName})
+    </insert>
+    <update id="updateEntity" parameterType="com.solvd.zoo.model.Visitor">
+        UPDATE visitors SET first_name=#{firstName}, last_name=#{lastName} WHERE id=#{id}
+    </update>
+    <delete id="removeEntity" parameterType="com.solvd.zoo.model.Visitor">
+        DELETE FROM visitors WHERE id=#{id}
+    </delete>
+    <select id="getEntities" resultMap="visitorResultMap">
+        SELECT id, first_name, last_name FROM visitors
+    </select>
+</mapper>
