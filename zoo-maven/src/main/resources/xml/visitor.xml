@@ -1,0 +1,18 @@
+<visitors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="visitor.xsd">
+    <visitor id="1">
+        <firstName>Diego</firstName>
+        <lastName>Smith</lastName>
+    </visitor>
+    <visitor id="2">
+        <firstName>Juan</firstName>
+        <lastName>Ivanov</lastName>
+    </visitor>
+    <visitor id="3">
+        <firstName>Paul</firstName>
+        <lastName>Doe</lastName>
+    </visitor>
+    <visitor id="4">
+        <firstName>Mateo</firstName>
+        <lastName>Audisio</lastName>
+    </visitor>
+</visitors>

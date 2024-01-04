@@ -1,0 +1,10 @@
+<employee id="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="employee.xsd">
+    <firstName>Diego</firstName>
+    <lastName>Smith</lastName>
+    <passport id="1234">
+        <number>234jk2kl4</number>
+    </passport>
+    <address id="1234">
+        <city>Buenos Aires</city>
+    </address>
+</employee>

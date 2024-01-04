@@ -1,0 +1,12 @@
+<species xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="specie.xsd">
+    <specie id="1">
+        <name>Lion</name>
+        <habitat>Savannah</habitat>
+        <lifespan>12</lifespan>
+    </specie>
+    <specie id="2">
+        <name>Polar Bear</name>
+        <habitat>Arctic</habitat>
+        <lifespan>20</lifespan>
+    </specie>
+</species>

@@ -1,0 +1,23 @@
+<veterinarians xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="veterinarian.xsd">
+    <veterinarian id="1">
+        <specialization>Internal Medicine</specialization>
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+    </veterinarian>
+    <veterinarian id="2">
+        <specialization>Surgery</specialization>
+        <firstName>Alice</firstName>
+        <lastName>Smith</lastName>
+    </veterinarian>
+    <veterinarian id="3">
+        <specialization>Dentistry</specialization>
+        <firstName>Michael</firstName>
+        <lastName>Johnson</lastName>
+    </veterinarian>
+    <veterinarian id="4">
+        <specialization>Exotic Animals</specialization>
+        <firstName>Sarah</firstName>
+        <lastName>Williams</lastName>
+    </veterinarian>
+</veterinarians>
