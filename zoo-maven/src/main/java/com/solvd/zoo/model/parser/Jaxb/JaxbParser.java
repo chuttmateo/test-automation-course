@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class JaxbParser {
-    public static void marshall(Class<?> clazz, Object o, String fileName){
+    public static void marshal(Class<?> clazz, Object o, String fileName){
         try {
             JAXBContext context = JAXBContext.newInstance(clazz);
             Marshaller marshaller = context.createMarshaller();
