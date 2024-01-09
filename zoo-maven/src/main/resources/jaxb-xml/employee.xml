@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee id="1">
+    <firstName>Nina</firstName>
+    <lastName>Audicio</lastName>
+    <passport id="1">
+        <number>abc123</number>
+    </passport>
+    <address id="1">
+        <city>Paris</city>
+    </address>
+</employee>

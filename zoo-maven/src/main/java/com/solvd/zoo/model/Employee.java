@@ -1,7 +1,13 @@
 package com.solvd.zoo.model;
 
-import java.util.Objects;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.Objects;
+@XmlRootElement(name = "employee")
+@XmlType(propOrder = {"id", "firstName", "lastName", "passport", "address"})
 public class Employee {
     private Long id;
     private String firstName;
@@ -23,7 +29,7 @@ public class Employee {
     public Long getId() {
         return id;
     }
-
+    @XmlAttribute
     public void setId(Long id) {
         this.id = id;
     }
@@ -31,7 +37,7 @@ public class Employee {
     public String getFirstName() {
         return firstName;
     }
-
+    @XmlElement(name = "firstName")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -39,7 +45,7 @@ public class Employee {
     public String getLastName() {
         return lastName;
     }
-
+    @XmlElement(name = "lastName")
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -47,7 +53,7 @@ public class Employee {
     public Passport getPassport() {
         return passport;
     }
-
+    @XmlElement(name = "passport")
     public void setPassport(Passport passport) {
         this.passport = passport;
     }
@@ -55,7 +61,7 @@ public class Employee {
     public Address getAddress() {
         return address;
     }
-
+    @XmlElement(name = "address")
     public void setAddress(Address address) {
         this.address = address;
     }

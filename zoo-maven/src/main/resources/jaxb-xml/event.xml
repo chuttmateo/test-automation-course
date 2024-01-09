@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<event id="1">
+    <name>Crazy Monkeys</name>
+    <date>2024-01-08T21:09:43.654768536</date>
+    <tickets>
+        <ticket id="1">
+            <number>abc123</number>
+            <price>50.0</price>
+        </ticket>
+        <ticket id="2">
+            <number>abc124</number>
+            <price>50.0</price>
+        </ticket>
+    </tickets>
+</event>
