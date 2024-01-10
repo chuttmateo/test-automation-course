@@ -1,6 +1,10 @@
 package com.solvd.zoo.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.solvd.zoo.model.parser.Jaxb.LocalDateTimeAdapter;
+import com.solvd.zoo.model.parser.jackson.CustomLocalDateTimeDeserializer;
+import com.solvd.zoo.model.parser.jackson.CustomLocalDateTimeSerializer;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -44,8 +48,11 @@ public class Event {
     public LocalDateTime getDate() {
         return date;
     }
+
     @XmlElement(name = "date")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomLocalDateTimeDeserializer.class)
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
