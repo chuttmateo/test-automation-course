@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: Adapter Changed">
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: Jackson homework done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jaxb-xml/event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jaxb-xml/event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jackson-json/event.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jackson-json/event.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +41,7 @@
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;Application.ConectionP.executor&quot;: &quot;Run&quot;,
     &quot;Application.DaemonThread.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DesignPatternsMain.executor&quot;: &quot;Run&quot;,
     &quot;Application.DomParser.executor&quot;: &quot;Run&quot;,
     &quot;Application.JacksonHomework.executor&quot;: &quot;Run&quot;,
     &quot;Application.JaxbHomework.executor&quot;: &quot;Run&quot;,
