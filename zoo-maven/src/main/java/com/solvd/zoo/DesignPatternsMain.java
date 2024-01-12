@@ -4,6 +4,9 @@ import com.solvd.zoo.model.Address;
 import com.solvd.zoo.model.enums.Factory;
 import com.solvd.zoo.patterns.AbstractFactory;
 import com.solvd.zoo.patterns.Zoo;
+import com.solvd.zoo.patterns.observer.MarketingDepartment;
+import com.solvd.zoo.patterns.observer.Tv;
+import com.solvd.zoo.patterns.observer.WebPage;
 
 import java.util.List;
 
@@ -11,7 +14,8 @@ public class DesignPatternsMain {
     public static void main(String[] args) {
         //-Abstract factory
         //-Factory
-        //Builder
+        //-Builder
+        //-Observer
 
         AbstractFactory
                 .getFactory(Factory.MYSQL)
@@ -34,6 +38,13 @@ public class DesignPatternsMain {
                 .name("The zoo")
                 .build();
         System.out.println(zoo);
+
+
+        MarketingDepartment marketingDepartment = new MarketingDepartment();
+        marketingDepartment.addObserver((s)-> System.out.println(s + " from lambda"));
+        marketingDepartment.addObserver(new Tv());
+        marketingDepartment.addObserver(new WebPage());
+        marketingDepartment.setNews("Hello");
 
 
     }

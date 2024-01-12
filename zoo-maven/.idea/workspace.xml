@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: Jackson homework done">
+    <list default="true" id="a857be24-cfaa-432c-8a69-c0a3ffc386f6" name="Changes" comment="Block 2: some patterns">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jackson-json/event.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jackson-json/event.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/DesignPatternsMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/DesignPatternsMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/MyBatisMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/zoo/MyBatisMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704410257891</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Block 2: some patterns">
+      <option name="closed" value="true" />
+      <created>1705095498342</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705095498342</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -290,7 +299,8 @@
     <MESSAGE value="Block 2: HW 4 v1 IVisitorDAO Implemented using MyBatis" />
     <MESSAGE value="Block 2: HW 4 v1 Services work with MyBatis" />
     <MESSAGE value="Block 2: 5 Classes have been parsed using DOM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Block 2: 5 Classes have been parsed using DOM" />
+    <MESSAGE value="Block 2: some patterns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block 2: some patterns" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
