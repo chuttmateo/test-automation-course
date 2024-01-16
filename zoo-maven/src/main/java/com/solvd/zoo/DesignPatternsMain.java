@@ -23,19 +23,14 @@ public class DesignPatternsMain {
     public static void main(String[] args) {
 
         //-MVC
-        //-Singleton
-        //-Abstract factory
-        //-Factory
-        //-Builder
-        //-Observer
-        //-Facade
-        //-Decorator
-        //-Strategy
 
         System.out.println("-----------------------");
+        //-Singleton
         ConnectionPool connectionPool = ConnectionPool.getConnectionPool(9);
 
         System.out.println("-----------------------");
+        //-Abstract factory
+        //-Factory
         AbstractFactory
                 .getFactory(Factory.MYSQL)
                 .getDaoImplementation("employee")
@@ -43,6 +38,8 @@ public class DesignPatternsMain {
                 .forEach(System.out::println);
 
         System.out.println("-----------------------");
+        //-Abstract factory
+        //-Factory
         AbstractFactory
                 .getFactory(Factory.MYBATIS)
                 .getDaoImplementation("employee")
@@ -50,6 +47,7 @@ public class DesignPatternsMain {
                 .forEach(System.out::println);
 
         System.out.println("-----------------------");
+        //-Builder
         Zoo zoo = Zoo.builder()
                 .id(1L)
                 .address(new Address())
@@ -61,6 +59,7 @@ public class DesignPatternsMain {
         System.out.println(zoo);
 
         System.out.println("-----------------------");
+        //-Observer
         MarketingDepartment marketingDepartment = new MarketingDepartment();
         marketingDepartment.addObserver((s)-> System.out.println(s + " from lambda"));
         marketingDepartment.addObserver(new Tv());
@@ -68,15 +67,18 @@ public class DesignPatternsMain {
         marketingDepartment.setNews("Hello");
 
         System.out.println("-----------------------");
+        //-Facade
         Facade facade = new Facade();
         Zoo aSampleZoo = facade.createASampleZoo();
         System.out.println(aSampleZoo);
 
         System.out.println("-----------------------");
+        //-Decorator
         DecoratorInterface decoratorBase = new DecoratorBase(new Notifier());
         decoratorBase.startShow();
 
         System.out.println("-----------------------");
+        //-Strategy
         int[] array = {1,4,2,1,56,8,43,2,53,21,35,2,45};
         Sorter bubbleSort = new Sorter(new BubbleSort());
         //bubbleSort.sort(array);
