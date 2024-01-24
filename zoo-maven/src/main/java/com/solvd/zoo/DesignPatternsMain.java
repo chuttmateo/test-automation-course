@@ -17,7 +17,8 @@ import com.solvd.zoo.patterns.strategy.Sorter;
 import com.solvd.zoomaven.concurrent.ConnectionPool;
 
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 public class DesignPatternsMain {
     public static void main(String[] args) {
@@ -61,7 +62,7 @@ public class DesignPatternsMain {
         System.out.println("-----------------------");
         //-Observer
         MarketingDepartment marketingDepartment = new MarketingDepartment();
-        marketingDepartment.addObserver((s)-> System.out.println(s + " from lambda"));
+        marketingDepartment.addObserver((s) -> System.out.println(s + " from lambda"));
         marketingDepartment.addObserver(new Tv());
         marketingDepartment.addObserver(new WebPage());
         marketingDepartment.setNews("Hello");
@@ -79,7 +80,7 @@ public class DesignPatternsMain {
 
         System.out.println("-----------------------");
         //-Strategy
-        int[] array = {1,4,2,1,56,8,43,2,53,21,35,2,45};
+        int[] array = {1, 4, 2, 1, 56, 8, 43, 2, 53, 21, 35, 2, 45};
         Sorter bubbleSort = new Sorter(new BubbleSort());
         //bubbleSort.sort(array);
 
@@ -89,5 +90,9 @@ public class DesignPatternsMain {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
+    }
+
+    public static void f2(Function<Integer, Integer> f, int i) {
+        System.out.println(f.apply(i));
     }
 }
